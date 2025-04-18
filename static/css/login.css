@@ -1,0 +1,76 @@
+/*  resete padrao */
+* {
+    margin: none;
+    padding: none;
+    box-sizing: border-box
+}
+
+/* estilo de todo o body da pagina */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* texto de boas vindas */
+header {
+    font-size: 16px;
+    cursor: default;
+}
+
+/* container de login */
+.login-box {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    padding: 20px;
+    background-color: rgba(102, 102, 102, 0.473);
+    backdrop-filter: blur(5px);
+    align-items: center;
+
+    /* titulo de login */
+    & #login {
+        font-size: 50px;
+        cursor: default;
+    }
+
+    /* estilo dos campos de input */
+    .input-container {
+        position: relative;
+        margin-bottom: 25px;
+
+        /* campo de input */
+        & input {
+            width: 250px;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid rgb(199, 199, 199);
+            border-radius: 10px;
+            outline: none;
+        }
+
+        /* labels (email/ senha) */
+        & label {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            color: #8a8a8a;
+            background-color: rgb(255, 255, 255);
+            padding: 0 4px;
+            pointer-events: none;
+            transition: 0.3s ease;
+            font-size: bold;
+        }
+
+        /* faz o label se mover ao mexer com o campo de input */
+        & input:focus+label,
+        & input:not(:placeholder-shown)+label,
+        & input:hover+label {
+            top: -10px;
+            left: 10px;
+            color: blue;
+        }
+    }
+}
