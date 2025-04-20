@@ -1,11 +1,11 @@
-/*  resete padrao */
+/*  reset padrao */
 * {
     margin: none;
     padding: none;
     box-sizing: border-box
 }
 
-/*  resete do fill do autocomplete */
+/*  reset do fill do autocomplete */
 .input-container input:-webkit-autofill,
 .input-container input:-webkit-autofill:hover,
 .input-container input:-webkit-autofill:focus,
@@ -37,6 +37,10 @@ body {
     & p {
         text-align: center;
         font-size: 2rem;
+        font-family: "Poetsen One";
+        color: #000000;
+        font-style: italic;
+        text-shadow: 2px 2px 1px rgb(216, 216, 216);
         cursor: default;
         margin: 0;
     }
@@ -46,7 +50,7 @@ body {
         top: 10px;
         height: 150px;
         width: 120px;
-        filter: drop-shadow(3px 10px 5px rgba(0, 0, 0, 0.534))
+        filter: drop-shadow(2px 2px 0 rgb(255, 255, 255))
     }
 }
 
@@ -70,6 +74,7 @@ body {
         font-size: 60px;
         cursor: default;
         margin: 0;
+        text-shadow: 3px 3px 3px rgba(216, 216, 216, 0.822);
     }
 }
 
@@ -82,7 +87,6 @@ body {
     & input {
         width: clamp(300px, 40vw, 500px);
         padding: 12px;
-        padding-right: 50px;
         font-size: 1rem;
         border: none;
         outline: none;
@@ -99,7 +103,6 @@ body {
         left: 12px;
         transform: translateY(-50%);
         color: #353535;
-        padding: 0 4px;
         pointer-events: none;
         transition: 0.3s ease;
         font-weight: 400;
@@ -118,7 +121,7 @@ body {
     & input:focus,
     & input:hover,
     & input:not(:placeholder-shown) {
-        background: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.6);
     }
 
     /* botao de ver ou ocultar senha */
@@ -136,6 +139,7 @@ body {
         &:hover {
             transform: translateY(-50%) scale(1.1);
             transition: 0.3s ease;
+            filter: drop-shadow(0 1px 3px rgb(255, 255, 255));
         }
     }
 
@@ -172,7 +176,7 @@ body {
         background: linear-gradient(130deg, rgb(105, 128, 255), rgb(3, 3, 216));
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.336);
         font-size: 1rem;
-        font-weight: bold;
+        font-weight: 300;
         cursor: pointer;
 
         &:hover {
