@@ -9,7 +9,6 @@
 .input-container input:-webkit-autofill:hover,
 .input-container input:-webkit-autofill:focus,
 .input-container input:-webkit-autofill:active {
-
     background-color: rgba(255, 255, 255, 0) !important;
     transition: background-color 9999s ease-in-out 0s !important;
     font-size: 16px !important;
@@ -20,11 +19,13 @@
 body {
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 60px;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(125deg, rgb(172, 12, 12), rgb(80, 1, 1));
+    background-image: url(/static/images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* texto de boas vindas */
@@ -42,8 +43,11 @@ body {
     }
 
     & .logo {
-        height: 100px;
-        width: 100px;
+        position: relative;
+        top: 10px;
+        height: 150px;
+        width: 120px;
+        filter: drop-shadow(3px 10px 5px rgba(0, 0, 0, 0.534))
     }
 }
 
@@ -53,7 +57,7 @@ body {
     flex-direction: column;
     row-gap: 50px;
     height: 500px;
-    padding: 20px;
+    width: clamp(350px, 50vw, 600px);
     background-color: rgba(102, 102, 102, 0.267);
     backdrop-filter: blur(10px);
     align-items: center;
@@ -76,7 +80,7 @@ body {
 
     /* campo de input */
     & input {
-        width: 300px;
+        width: clamp(300px, 40vw, 500px);
         padding: 12px;
         padding-right: 50px;
         font-size: 1rem;
@@ -150,6 +154,7 @@ body {
     align-items: center;
     row-gap: 10px;
 
+    /* botao de entrar */
     .login-button {
         width: 150px;
         height: 30px;
@@ -167,6 +172,7 @@ body {
         }
     }
 
+    /* link de cadastro   */
     .register {
         text-decoration: none;
         color: rgb(0, 0, 0);
