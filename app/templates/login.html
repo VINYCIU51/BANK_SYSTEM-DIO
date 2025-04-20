@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank System</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/app/static/css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link
@@ -19,21 +19,21 @@
         <p>OWL <br> INVEST</p>
     </div>
 
-    <!-- quadro de login -->
-    <div class="login-box">
+    <!-- quadro de login  -->
+    <form class="login-box">
         <p id="login">Login</p>
 
         <div>
             <!-- area de adicionar o email -->
             <div class="input-container">
-                <input type="email" id="email" placeholder=" " required>
+                <input type="email" id="email" name="email" placeholder=" " required>
                 <label for="email">Email</label>
             </div>
 
             <!-- area para adicionar a senha -->
             <div class="input-container">
-                <input type="password" id="password" placeholder=" " required>
-                <label for="password">Senha</label> <!-- label para animacao de floating label-->
+                <input type="password" id="password" name="password" placeholder=" " required>
+                <label for="password">Senha</label>
 
                 <!-- link de recuperação de senha -->
                 <a class="forgot" href="#">Esqueci a senha</a>
@@ -43,12 +43,12 @@
         <!-- area de login ou sign up -->
         <div class="enter-account">
             <!-- botao de logar -->
-            <button onclick="window.location.href='#'" class="login-button">Entrar</button>
+            <button type="submit" class="login-button">Entrar</button>
 
             <!-- link para criar uma conta -->
-            <a class="register" href="#">Cadastre-se</a>
+            <a class="register" href="sign-up.html">Cadastre-se</a>
         </div>
-    </div>
+    </form>
 </body>
 
 </html>
