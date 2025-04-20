@@ -6,26 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank System</title>
     <link rel="stylesheet" href="static/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
-    <header>
-        <p>Bem vindo ao banco do nordeste</p>
-    </header>
+    <!-- Area para o logo e o titulo do banco -->
+    <div class="logo-title">
+        <img class="logo" src="/static/images/logo.png">
+        <p>Owl <br> Investimentos</p>
+    </div>
 
+    <!-- quadro de login -->
     <div class="login-box">
         <p id="login">Login</p>
 
-        <div class="input-container">
-            <input type="email" id="email" placeholder=" " required>
-            <label for="email">Email</label>
+        <div>
+            <!-- area de adicionar o email -->
+            <div class="input-container">
+                <input type="email" id="email" placeholder=" " required>
+                <label for="email">Email</label>
+            </div>
+
+            <!-- area para adicionar a senha -->
+            <div class="input-container">
+                <input type="password" id="password" placeholder=" " required>
+                <label for="password">Senha</label> <!-- label para animacao de floating label-->
+
+                <!-- emoji de olho -->
+                <button class="view-password">
+                    <i class="fas fa-eye"></i>
+                </button>
+
+                <!-- link de recuperação de senha -->
+                <a class="forgot" href="#">Esqueci a senha</a>
+            </div>
         </div>
 
-        <div class="input-container">
-            <input type="password" id="password" placeholder=" " required>
-            <label for="password">Senha</label>
-        </div>
+        <!-- area de login ou sign up -->
+        <div class="enter-account">
+            <!-- botao de logar -->
+            <button class="login-button">Entrar</button>
 
+            <!-- link para criar uma conta -->
+            <a class="register" href="#">Cadastre-se</a>
+        </div>
     </div>
 </body>
 
