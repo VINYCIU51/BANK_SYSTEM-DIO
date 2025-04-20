@@ -5,72 +5,175 @@
     box-sizing: border-box
 }
 
+.input-container input:-webkit-autofill,
+.input-container input:-webkit-autofill:hover,
+.input-container input:-webkit-autofill:focus,
+.input-container input:-webkit-autofill:active {
+
+    background-color: rgba(255, 255, 255, 0) !important;
+    transition: background-color 9999s ease-in-out 0s !important;
+    font-size: 16px !important;
+}
+
+
 /* estilo de todo o body da pagina */
 body {
     display: flex;
     flex-direction: column;
+    row-gap: 30px;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    background: linear-gradient(125deg, rgb(172, 12, 12), rgb(80, 1, 1));
 }
 
 /* texto de boas vindas */
-header {
-    font-size: 16px;
-    cursor: default;
+.logo-title {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & p {
+        text-align: center;
+        font-size: 2rem;
+        cursor: default;
+        margin: 0;
+    }
+
+    & .logo {
+        height: 100px;
+        width: 100px;
+    }
 }
 
 /* container de login */
 .login-box {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    row-gap: 50px;
+    height: 500px;
     padding: 20px;
-    background-color: rgba(102, 102, 102, 0.473);
-    backdrop-filter: blur(5px);
+    background-color: rgba(102, 102, 102, 0.267);
+    backdrop-filter: blur(10px);
     align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.753);
 
     /* titulo de login */
     & #login {
         font-size: 50px;
         cursor: default;
+        margin: 0;
+    }
+}
+
+/* estilo dos campos de input */
+.input-container {
+    position: relative;
+    margin-bottom: 30px;
+
+    /* campo de input */
+    & input {
+        width: 300px;
+        padding: 12px;
+        padding-right: 50px;
+        font-size: 1rem;
+        border: none;
+        outline: none;
+        background: rgba(184, 183, 183, 0.137);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
     }
 
-    /* estilo dos campos de input */
-    .input-container {
-        position: relative;
-        margin-bottom: 25px;
 
-        /* campo de input */
-        & input {
-            width: 250px;
-            padding: 12px;
-            font-size: 16px;
-            border: 2px solid rgb(199, 199, 199);
-            border-radius: 10px;
-            outline: none;
-        }
+    /* labels (email/ senha) */
+    & label {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        color: #000000;
+        padding: 0 4px;
+        pointer-events: none;
+        transition: 0.3s ease;
+        font-weight: 700;
+    }
 
-        /* labels (email/ senha) */
-        & label {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            color: #8a8a8a;
-            background-color: rgb(255, 255, 255);
-            padding: 0 4px;
-            pointer-events: none;
+    /* faz o label se mover ao mexer com o campo de input */
+    & input:focus+label,
+    & input:not(:placeholder-shown)+label,
+    & input:hover+label {
+        top: -18px;
+        left: 10px;
+        color: rgb(0, 0, 0);
+    }
+
+    /* botao de ver ou ocultar senha */
+    & .view-password {
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 10px;
+
+        &:hover {
+            transform: translateY(-50%) scale(1.1);
             transition: 0.3s ease;
-            font-size: bold;
         }
+    }
 
-        /* faz o label se mover ao mexer com o campo de input */
-        & input:focus+label,
-        & input:not(:placeholder-shown)+label,
-        & input:hover+label {
-            top: -10px;
-            left: 10px;
-            color: blue;
+    /* link de recuperacao de senha */
+    & .forgot {
+        position: absolute;
+        top: 55px;
+        right: 0px;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+
+        &:hover {
+            transform: scale(1.05);
+            transition: 0.3s ease;
+        }
+    }
+
+}
+
+/* area dos botoes de login e sign up */
+.enter-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+
+    .login-button {
+        width: 150px;
+        height: 30px;
+        border-radius: 10px;
+        border: none;
+        background-color: rgb(98, 98, 245);
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.336);
+        font-size: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(133, 133, 245);
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+    }
+
+    .register {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+
+        &:hover {
+            transform: scale(1.05);
+            transition: 0.3s ease;
         }
     }
 }
