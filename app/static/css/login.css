@@ -140,12 +140,12 @@ body {
     row-gap: 60px;
     height: 500px;
     width: clamp(350px, 50vw, 600px);
-    background: linear-gradient(130deg, #09090986, #4d4d4d96, #09090986);
-    backdrop-filter: blur(5px);
+    background: linear-gradient(130deg, #4d4d4d75, #09090975);
+    backdrop-filter: blur(3px);
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 3, 182, 0.74);
+    box-shadow: 0 5px 15px rgba(148, 148, 148, 0.74);
     font-family: "Poppins";
 
     /* titulo de login */
@@ -168,13 +168,14 @@ body {
     & input {
         width: clamp(300px, 40vw, 500px);
         padding: 12px;
-        font-size: 1rem;
+        font-size: 1.2rem;
         border: none;
         outline: none;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
         background: rgba(255, 255, 255, 0.15);
         border-radius: 12px;
         color: #000000;
+        font-weight: 500;
     }
 
 
@@ -203,7 +204,7 @@ body {
     & input:focus,
     & input:hover,
     & input:not(:placeholder-shown) {
-        background: linear-gradient(90deg, rgba(194, 194, 194, 0.6), rgba(61, 61, 61, 0.6));
+        background: linear-gradient(90deg, rgba(214, 214, 214, 0.6), rgba(77, 77, 77, 0.6));
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
         transform: scale(1.008);
         transition: box-shadow 0.2s ease-in, transform 0.2s ease-in;
@@ -215,11 +216,13 @@ body {
         top: 55px;
         right: 0px;
         font-size: 12px;
-        color: #F0EBE3;
+        color: rgb(146, 146, 255);
         transition: 0.3s ease;
+        text-decoration: none;
 
         &:hover {
-            transform: scale(1.05);
+            text-decoration: underline;
+            transform: scale(1.02);
         }
     }
 
@@ -269,22 +272,26 @@ body {
         }
     }
 
-    /* texto "ou" */
+    /* texto "sem conta?" */
     & p {
         margin: 0;
         padding: 0;
         color: #F0EBE3;
         font-size: 11px;
-    }
 
-    /* link de cadastro   */
-    .register {
-        color: #F0EBE3;
-        font-size: 12px;
-        transition: 0.3s ease;
 
-        &:hover {
-            transform: scale(1.05);
+        /* link de cadastro   */
+        & .register {
+            display: inline-block;
+            color: rgb(146, 146, 255);
+            font-size: 12px;
+            transition: 0.3s ease;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+                transform: scale(1.02);
+            }
         }
     }
 }
