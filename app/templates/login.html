@@ -20,20 +20,22 @@
     </div>
 
     <!-- quadro de login  -->
-    <form class="login-box">
+    <form id="loginForm" class="login-box" autocomplete="off">
         <p id="login">Login</p>
 
         <div>
             <!-- area de adicionar o email -->
             <div class="input-container">
-                <input type="email" id="email" name="email" placeholder=" " required>
+                <input type="email" id="email" name="email" placeholder=" ">
                 <label for="email">Email</label>
+                <span id="email-error" class="error-message"></span>
             </div>
 
             <!-- area para adicionar a senha -->
             <div class="input-container">
-                <input type="password" id="password" name="password" placeholder=" " required>
+                <input type="password" id="password" name="password" placeholder=" " autocomplete="new-password">
                 <label for="password">Senha</label>
+                <span id="password-error" class="error-message"></span>
 
                 <!-- link de recuperação de senha -->
                 <a class="forgot" href="#">Esqueci a senha</a>
@@ -45,10 +47,14 @@
             <!-- botao de logar -->
             <button type="submit" class="login-button">Entrar</button>
 
+            <p>ou</p>
+
             <!-- link para criar uma conta -->
             <a class="register" href="sign-up.html">Cadastre-se</a>
         </div>
     </form>
+
+    <script type="module" src="/app/static/js/login/validations.js"></script>
 </body>
 
 </html>

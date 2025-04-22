@@ -10,9 +10,11 @@
 .input-container input:-webkit-autofill:hover,
 .input-container input:-webkit-autofill:focus,
 .input-container input:-webkit-autofill:active {
-    background-color: rgba(255, 255, 255, 0) !important;
-    transition: background-color 9999s ease-in-out 0s !important;
+    -webkit-text-fill-color: #000000 !important;
+    color: #F0EBE3;
     font-size: 16px !important;
+    border: transparent !important;
+    background-color: transparent !important
 }
 
 
@@ -20,7 +22,7 @@
 body {
     display: flex;
     flex-direction: column;
-    row-gap: 60px;
+    row-gap: 50px;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
@@ -38,9 +40,9 @@ body {
         text-align: center;
         font-size: 2rem;
         font-family: "Poetsen One";
-        color: #000000;
+        color: #F0EBE3;
         font-style: italic;
-        text-shadow: 2px 2px 1px rgb(216, 216, 216);
+        text-shadow: 2px 5px 10px rgb(36, 40, 255);
         cursor: default;
         margin: 0;
     }
@@ -61,12 +63,12 @@ body {
     row-gap: 50px;
     height: 500px;
     width: clamp(350px, 50vw, 600px);
-    background: linear-gradient(130deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35), rgba(49, 49, 49, 0.35));
+    background: linear-gradient(130deg, #09090986, #4d4d4d96, #09090986);
     backdrop-filter: blur(5px);
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.753);
+    box-shadow: 0 5px 15px rgba(0, 2, 143, 0.74);
     font-family: "Poppins";
 
     /* titulo de login */
@@ -74,7 +76,8 @@ body {
         font-size: 60px;
         cursor: default;
         margin: 0;
-        text-shadow: 3px 3px 3px rgba(216, 216, 216, 0.822);
+        color: #F0EBE3;
+        text-shadow: 3px 3px 10px rgb(0, 0, 0);
     }
 }
 
@@ -90,9 +93,10 @@ body {
         font-size: 1rem;
         border: none;
         outline: none;
-        background: rgba(255, 255, 255, 0.137);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+        background: rgba(255, 255, 255, 0.15);
         border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+        color: #000000;
     }
 
 
@@ -102,7 +106,7 @@ body {
         top: 50%;
         left: 12px;
         transform: translateY(-50%);
-        color: #353535;
+        color: #F0EBE3;
         pointer-events: none;
         transition: 0.3s ease;
         font-weight: 400;
@@ -112,35 +116,18 @@ body {
     & input:focus+label,
     & input:not(:placeholder-shown)+label,
     & input:hover+label {
-        top: -20px;
+        top: -22px;
         left: 5px;
         transform: scale(0.9);
-        color: #353535;
     }
 
     & input:focus,
     & input:hover,
     & input:not(:placeholder-shown) {
-        background: rgba(255, 255, 255, 0.6);
-    }
-
-    /* botao de ver ou ocultar senha */
-    & .view-password {
-        position: absolute;
-        right: 0px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: transparent;
-        border: none;
-        font-size: 16px;
-        cursor: pointer;
-        padding: 10px;
-
-        &:hover {
-            transform: translateY(-50%) scale(1.1);
-            transition: 0.3s ease;
-            filter: drop-shadow(0 1px 3px rgb(255, 255, 255));
-        }
+        background: linear-gradient(90deg, rgba(194, 194, 194, 0.6), rgba(73, 73, 73, 0.6));
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
+        transform: scale(1.008);
+        transition: 0.2s ease-in;
     }
 
     /* link de recuperacao de senha */
@@ -148,14 +135,30 @@ body {
         position: absolute;
         top: 55px;
         right: 0px;
-        text-decoration: none;
         font-size: 12px;
-        color: rgb(0, 0, 0);
+        color: #F0EBE3;
+        transition: 0.3s ease;
 
         &:hover {
             transform: scale(1.05);
-            transition: 0.3s ease;
         }
+    }
+
+    /* mensagem de erro dos campos */
+    & .error-message {
+        position: absolute;
+        right: 0px;
+        bottom: 45px;
+        color: rgb(233, 14, 14);
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* sombra vermelha para as areas de input erradas */
+    & .invalid {
+        box-shadow: 0px 3px 5px rgba(255, 0, 0, 0.747) !important;
+
     }
 
 }
@@ -165,7 +168,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 10px;
+    row-gap: 5px;
 
     /* botao de entrar */
     .login-button {
@@ -178,23 +181,32 @@ body {
         font-size: 1rem;
         font-weight: 300;
         cursor: pointer;
+        transition: all 0.25s ease-in;
 
         &:hover {
-            background: linear-gradient(130deg, rgb(146, 163, 255), rgb(38, 38, 255));
+            background: transparent;
+            border: 2px solid blue;
+            box-shadow: 0 3px 10px rgb(13, 13, 250);
+            color: #F0EBE3;
             transform: scale(1.1);
-            transition: 0.3s;
         }
+    }
+
+    /* texto "ou" */
+    & p {
+        margin: 0;
+        padding: 0;
+        color: #F0EBE3;
     }
 
     /* link de cadastro   */
     .register {
-        text-decoration: none;
-        color: rgb(0, 0, 0);
+        color: #F0EBE3;
         font-size: 12px;
+        transition: 0.3s ease;
 
         &:hover {
             transform: scale(1.05);
-            transition: 0.3s ease;
         }
     }
 }
