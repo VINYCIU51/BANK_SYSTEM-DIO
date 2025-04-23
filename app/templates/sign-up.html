@@ -14,7 +14,7 @@
 
 <body>
     <!-- quadro de cadastro -->
-    <form class="sign-up-box" method="POST" action="/cadastro">
+    <form id="signup-form" class="sign-up-box">
         <p id="sign-up">Cadastro</p>
 
         <!-- Container de colunas -->
@@ -23,31 +23,31 @@
             <div class="form-col">
                 <!-- area de adicionar o nome -->
                 <div class="input-container">
-                    <input type="text" id="name" name="name" placeholder=" " required>
+                    <input type="text" id="name" name="name" placeholder=" ">
                     <label for="name">Nome completo</label>
                 </div>
 
                 <!-- area de adicionar o nome da mae -->
                 <div class="input-container">
-                    <input type="text" id="mother-name" name="mother-name" placeholder=" " required>
+                    <input type="text" id="mother-name" name="mother-name" placeholder=" ">
                     <label for="mother-name">Nome da mãe</label>
                 </div>
 
                 <!-- area de adicionar o cpf -->
                 <div class="input-container">
-                    <input type="text" id="cpf" name="cpf" placeholder=" " required>
+                    <input type="text" id="cpf" name="cpf" placeholder=" ">
                     <label for="cpf">CPF</label>
                 </div>
 
                 <!-- area de adicionar o nacionalidade -->
                 <div class="input-container">
-                    <input type="text" id="nationality" name="nationality" placeholder=" " required>
+                    <input type="text" id="nationality" name="nationality" placeholder=" ">
                     <label for="nationality">Nacionalidade</label>
                 </div>
 
                 <!-- area de adicionar o cep -->
                 <div class="input-container">
-                    <input type="text" id="cep" name="cep" placeholder=" " required>
+                    <input type="text" id="cep" name="cep" placeholder=" ">
                     <label for="cep">CEP</label>
                 </div>
             </div>
@@ -56,25 +56,25 @@
             <div class="form-col">
                 <!-- area de adicionar a data de nascimento -->
                 <div class="input-container">
-                    <input type="date" id="birth-date" name="birth-date" placeholder=" " required>
+                    <input type="date" id="birth-date" name="birth-date" placeholder=" ">
                     <label for="birth-date">Data de nascimento</label>
                 </div>
 
                 <!-- area de adicionar o telefone -->
                 <div class="input-container">
-                    <input type="text" id="phone" name="phone" placeholder=" " required>
+                    <input type="text" id="phone" name="phone" placeholder=" ">
                     <label for="phone">Telefone</label>
                 </div>
 
                 <!-- area de adicionar o email -->
                 <div class="input-container">
-                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <input type="email" id="email" name="email" placeholder=" ">
                     <label for="email">Email</label>
                 </div>
 
                 <!-- area para adicionar a senha -->
                 <div class="input-container">
-                    <input type="password" id="password" name="password" placeholder=" " required>
+                    <input type="password" id="password" name="password" placeholder=" " autocomplete="new-password">
                     <label for="password">Senha</label>
                     <!-- emoji de olho -->
                     <button type="button" class="view-password">
@@ -84,7 +84,8 @@
 
                 <!-- area para confirmar senha -->
                 <div class="input-container">
-                    <input type="password" id="confirm-password" name="confirm-password" placeholder=" " required>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder=" "
+                        autocomplete="new-password">
                     <label for="confirm-password">Confirme a senha</label>
                     <!-- emoji de olho -->
                     <button type="button" class="view-password">
