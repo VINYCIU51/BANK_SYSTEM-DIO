@@ -37,12 +37,8 @@ emailInput.addEventListener("blur", (e) => {
 
     // evita que haja luz de erro so de passar pelo campo
     if (email !== "") {
-        if (emptyEmail()) {
-            invalidEmail("Campo obrigatório!");
-            hasError = true;
-        } else if (!isValidEmail()) {
+        if (!isValidEmail()) {
             invalidEmail("Formato inválido!");
-            hasError = true;
         } else {
             EmailOk();
         }

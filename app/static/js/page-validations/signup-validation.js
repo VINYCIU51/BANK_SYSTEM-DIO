@@ -1,5 +1,7 @@
 import { emptyEmail, isValidEmail, invalidEmail, EmailOk } from "../validations/email-validation.js";
-import { emptyPass, invalidPass, passOk, isEqualPass } from "../validations/pass-validation.js";
+import { emptyPass, invalidPass, passOk, isEqualPass, viewPassword } from "../validations/pass-validation.js";
+
+document.querySelector(".view-password").addEventListener("click", viewPassword);
 
 document.getElementById("signupForm").addEventListener("submit", (e) => {
     e.preventDefault();
