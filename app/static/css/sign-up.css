@@ -73,7 +73,6 @@ body {
 .input-container {
     position: relative;
     margin-bottom: 20px;
-    height: 45px;
 
     /* campo de input */
     & input {
@@ -97,8 +96,8 @@ body {
         transform: translateY(-50%);
         color: #F0EBE3;
         pointer-events: none;
-        transition: 0.3s ease;
         font-weight: 400;
+        transition: 0.3s ease;
     }
 
     /* faz o label se mover ao mexer com o campo de input */
