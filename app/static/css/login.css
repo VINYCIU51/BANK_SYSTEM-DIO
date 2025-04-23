@@ -224,7 +224,7 @@ body {
     }
 
     /* mensagem de erro dos campos */
-    & .error-message {
+    & .input-message {
         position: absolute;
         right: 0px;
         bottom: 42px;
@@ -236,8 +236,9 @@ body {
 
     /* sombra vermelha para as areas de input erradas */
     & .invalid {
-        box-shadow: 0px 4px 5px rgba(255, 0, 0, 0.747) !important;
+        box-shadow: 0px 4px 5px rgba(255, 0, 0, 0.75) !important;
     }
+
 }
 
 /* area dos botoes de login e sign up */
