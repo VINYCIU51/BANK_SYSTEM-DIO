@@ -132,7 +132,7 @@ body {
         cursor: pointer;
         padding: 10px;
         color: rgb(146, 146, 255);
-        transition: transform, filter 0.3s ease;
+        transition: 0.3s ease;
 
         &:hover {
             transform: translateY(-50%) scale(1.1);
@@ -141,7 +141,7 @@ body {
     }
 
     /* mensagem de erro dos campos */
-    & .error-message {
+    & .input-message {
         position: absolute;
         right: 0px;
         bottom: 42px;
@@ -153,7 +153,15 @@ body {
 
     /* sombra vermelha para as areas de input erradas */
     & .invalid {
-        box-shadow: 0px 4px 5px rgba(255, 0, 0, 0.747) !important;
+        box-shadow: 0px 4px 5px rgba(255, 0, 0, 0.75) !important;
+    }
+
+    & .weak {
+        box-shadow: 0 4px 5px yellow !important;
+    }
+
+    & .strong {
+        box-shadow: 0 4px 5px green !important;
     }
 }
 
