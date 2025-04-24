@@ -78,22 +78,6 @@ body {
     }
 
     /* media-querys para reorganizacao responsiva da tela */
-    @media (max-width: 1024px) {
-        .text span {
-            font-size: 3.5rem;
-        }
-    }
-
-    @media (max-width: 900px) {
-        .text span {
-            font-size: 3rem;
-        }
-
-        .logo {
-            height: 200px;
-            width: 160px;
-        }
-    }
 
     @media (max-width: 768px) {
         flex-direction: column;
@@ -115,17 +99,6 @@ body {
         .logo {
             height: 150px;
             width: 120px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .text span {
-            font-size: 2rem;
-        }
-
-        .logo {
-            height: 120px;
-            width: 100px;
         }
     }
 }
@@ -272,7 +245,7 @@ body {
         }
     }
 
-    /* texto "sem conta?" */
+    /* texto "nao tem conta?" */
     & p {
         margin: 0;
         padding: 0;

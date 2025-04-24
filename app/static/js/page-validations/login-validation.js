@@ -7,7 +7,7 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
 
     let hasError = false;
 
-    // Validação do e-mail
+    // Validação do email
     if (emptyEmail()) {
         invalidEmail("Campo obrigatório!");
         hasError = true;
