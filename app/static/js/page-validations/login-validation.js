@@ -2,8 +2,8 @@ import { emptyEmail, isValidEmail, invalidEmail, EmailOk } from "../validations/
 import { emptyPass, invalidPass, passOk } from "../validations/pass-validation.js";
 
 // Validação do submit
-document.getElementById("loginForm").addEventListener("submit", (e) => {
-    e.preventDefault();
+document.getElementById("loginForm").addEventListener("submit", (event) => {
+    event.preventDefault();
 
     let hasError = false;
 

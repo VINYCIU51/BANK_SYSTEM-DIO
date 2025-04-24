@@ -1,10 +1,12 @@
 import { emptyEmail, isValidEmail, invalidEmail, EmailOk } from "../validations/email-validation.js";
-import { emptyPass, invalidPass, passOk, isEqualPass, viewPassword } from "../validations/pass-validation.js";
+import { emptyPass, invalidPass, passOk, isEqualPass, viewPassword, diferentPass } from "../validations/pass-validation.js";
 
-document.querySelector(".view-password").addEventListener("click", viewPassword);
+document.querySelectorAll(".view-password").forEach(button => {
+    button.addEventListener("click", viewPassword);
+});
 
-document.getElementById("signupForm").addEventListener("submit", (e) => {
-    e.preventDefault();
+document.getElementById("signupForm").addEventListener("submit", (event) => {
+    event.preventDefault();
 
     let hasError = false;
 
@@ -24,7 +26,7 @@ document.getElementById("signupForm").addEventListener("submit", (e) => {
         invalidPass("Campo obrigatório!");
         hasError = true;
     } else if (!isEqualPass()) {
-        invalidPass("Senhas não coincidem!");
+        diferentPass("Senhas divergentes!");
         hasError = true;
     }
 
