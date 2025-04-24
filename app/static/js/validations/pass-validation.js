@@ -56,19 +56,12 @@ export function passStrong() {
 }
 
 export function viewPassword(event) {
-    // 1. Pegar o botão clicado (usando currentTarget do evento)
     const button = event.currentTarget;
-
-    // 2. Encontrar o container pai
     const container = button.closest(".input-container");
-
-    // 3. Buscar o input dentro do container (usando querySelector)
     const input = container.querySelector("input[type='password'], input[type='text']");
 
-    // 4. Alternar o tipo do input
     input.type = input.type === "password" ? "text" : "password";
 
-    // 5. Alternar o ícone (buscando dentro do botão clicado)
     const icon = button.querySelector("i");
     icon.classList.toggle("fa-eye");
     icon.classList.toggle("fa-eye-slash");
