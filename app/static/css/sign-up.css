@@ -78,6 +78,7 @@ body {
     & input {
         width: 100%;
         padding: 12px;
+        padding-right: 40px;
         font-size: 1rem;
         border: none;
         outline: none;
@@ -147,7 +148,7 @@ body {
         position: absolute;
         right: 0px;
         bottom: 42px;
-        color: rgb(233, 14, 14);
+        color: red;
         font-size: 13px;
         margin: 0;
         padding: 0;
@@ -160,6 +161,10 @@ body {
 
     & .weak {
         box-shadow: 0 4px 5px yellow !important;
+    }
+
+    & .middle {
+        box-shadow: 0 4px 5px greenyellow !important;
     }
 
     & .strong {
