@@ -6,20 +6,19 @@ export const confirmPassError = document.getElementById("confirmPass-error");
 
 export const toggleButton = document.querySelector(".view-password i");
 
-// verifica se o campo esta vazio
-export function emptyPass() {
-    return passInput.value.trim() === "";
-}
-
 // exibe um alerta na senha
-export function invalidPass(menssage) {
-    passInput.classList.add("invalid");
+export function passAlert(type, color, menssage) {
+    passOk(); // reseta alguma cor residual
+
+    passInput.classList.add(type);
+    passError.style.color = color;
     passError.textContent = menssage;
 }
 
 // remove o alerta de erro da senha
 export function passOk() {
-    passInput.classList.remove("invalid");
+    passInput.classList.remove("invalid", "weak", "strong");
+    passError.style.color = "black";
     passError.textContent = "";
 
     if (confirmPassInput) {
@@ -27,6 +26,12 @@ export function passOk() {
         confirmPassError.textContent = "";
     }
 }
+
+// verifica se o campo esta vazio
+export function emptyPass() {
+    return passInput.value.trim() === "";
+}
+
 
 // verifica se o usuario digitou as confirmacao de senha corretamente
 export function isEqualPass() {
@@ -41,20 +46,28 @@ export function diferentPass(menssage) {
 
 export function passStrong() {
     const password = passInput.value;
-    const caracteres = /[^a-zA-Z0-9]/;
+    const specialChars = password.match(/[^a-zA-Z0-9]/g) || [];
+    const uniqueChars = new Set(password).size;
 
-    if (password.length >= 8 && !caracteres.test(password)) {
-        passInput.classList.add("weak");
-        passError.textContent = "Senha media!";
-        passError.style.color = "yellow";
+    const hasUpper = /[A-Z]/.test(password);
+    const hasLower = /[a-z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    const complexity = (hasUpper + hasLower + hasNumber) * 10;
 
-    } else if (password.length >= 8 && caracteres.test(password)) {
-        passInput.classList.add("strong");
-        passError.textContent = "Senha forte!";
-        passError.style.color = "green";
+    const strong = ((specialChars.length / password.length) * 30) + ((uniqueChars / password.length) * 40) + complexity;
+
+    if (password.length < 8) {
+        passAlert("invalid", "red", "Mínimo 8 dígitos!");
+    } else if (strong < 40) {
+        passAlert("weak", "yellow", "Senha fraca!");
+    } else if (strong >= 40 && strong < 70) {
+        passAlert("middle", "greenyellow", "Senha média!");
+    } else {
+        passAlert("strong", "green", "Senha forte!");
     }
 }
 
+// altera o botao e exibe ou oculta a senha
 export function viewPassword(event) {
     const button = event.currentTarget;
     const container = button.closest(".input-container");
@@ -79,10 +92,11 @@ passInput.addEventListener("input", () => {
 if (confirmPassInput) {
 
     confirmPassInput.addEventListener("blur", () => {
-        if (passInput.value.trim() !== "" && confirmPassInput.value.trim() !== "") {
-            if (!isEqualPass()) {
-                diferentPass("Senhas divergentes!");
-            }
+        if (passInput.value.trim() === "" && confirmPassInput.value.trim() === "") {
+            return;
+        }
+        if (!isEqualPass()) {
+            diferentPass("Senhas divergentes!");
         }
     })
 
