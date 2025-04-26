@@ -1,49 +1,58 @@
-export const emailInput = document.getElementById("email");
-export const emailError = document.getElementById("email-error");
+export class EmailValidation {
+    constructor() {
+        this.input = document.getElementById("email");
+        this.error = document.getElementById("email-error");
 
-// Função que verifica se o email é válido
-export function isValidEmail() {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(emailInput.value);
-}
-
-// Função que verifica se o campo está vazio
-export function emptyEmail() {
-    return emailInput.value.trim() === "";
-}
-
-// exibe um alerta no email
-export function invalidEmail(menssage) {
-    emailInput.classList.add("invalid");
-    emailError.textContent = menssage;
-}
-
-//  remove o alerta de erro do email
-export function EmailOk() {
-    emailInput.classList.remove("invalid");
-    emailError.textContent = "";
-}
-
-// retira a cor vermelha ao digitar novamente
-emailInput.addEventListener("input", () => {
-    if (emailInput.value.trim() !== "") {
-        EmailOk();
-    }
-});
-
-// Validação quando o campo perde o foco (blur)
-emailInput.addEventListener("blur", (e) => {
-    const email = e.target.value;
-
-    // evita que haja luz de erro so de passar pelo campo
-    if (email !== "") {
-        if (!isValidEmail()) {
-            invalidEmail("Formato inválido!");
-        } else {
-            EmailOk();
+        // Verifica se os elementos existem antes de adicionar listeners
+        if (this.input && this.error) {
+            this.setupEventListeners();
         }
-    } else {
-        EmailOk();
     }
 
-});
+    // verifica se o email é válido
+    isValid() {
+        const format = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return format.test(this.input.value);
+    }
+
+    // verifica se o campo está vazio
+    isEmpty() {
+        return this.input.value.trim() === "";
+    }
+
+    // exibe um alerta no email
+    alert(menssage) {
+        this.input.classList.add("invalid");
+        this.error.textContent = menssage;
+    }
+
+    // remove o alerta de erro do email
+    clearAlert() {
+        this.input.classList.remove("invalid");
+        this.error.textContent = "";
+    }
+
+    // Configura os event listeners
+    setupEventListeners() {
+        // retira a cor vermelha ao digitar novamente
+        this.input.addEventListener("input", () => {
+            if (this.input.value.trim() !== "") {
+                this.clearAlert();
+            }
+        });
+
+        // Validação quando o campo perde o foco (blur)
+        this.input.addEventListener("blur", (e) => {
+            const email = e.target.value;
+
+            // evita que haja luz de erro só de passar pelo campo
+            if (email === "") {
+                return this.clearAlert();
+            }
+            if (!this.isValid()) {
+                return this.alert("Formato inválido!");
+            }
+            this.clearAlert();
+        });
+    }
+}
