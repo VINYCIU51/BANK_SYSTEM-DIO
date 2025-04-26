@@ -1,5 +1,9 @@
-import { emptyEmail, isValidEmail, invalidEmail, EmailOk } from "../validations/email-validation.js";
-import { emptyPass, invalidPass, passOk } from "../validations/pass-validation.js";
+import { EmailValidation } from "../validations/email-validation.js";
+import { PasswordValidation } from "../validations/pass-validation.js";
+
+// Inicializa as validações
+const email = new EmailValidation();
+const pass = new PasswordValidation();
 
 // Validação do submit
 document.getElementById("loginForm").addEventListener("submit", (event) => {
@@ -8,22 +12,22 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
     let hasError = false;
 
     // Validação do email
-    if (emptyEmail()) {
-        invalidEmail("Campo obrigatório!");
+    if (email.isEmpty()) {
+        email.alert("Campo obrigatório!");
         hasError = true;
-    } else if (!isValidEmail()) {
-        invalidEmail("Formato inválido!");
+    } else if (!email.isValid()) {
+        email.alert("Formato inválido!");
         hasError = true;
     } else {
-        EmailOk();
+        email.clearAlert();
     }
 
     // Validação da senha
-    if (emptyPass()) {
-        invalidPass("Campo obrigatório!");
+    if (pass.isEmpty()) {
+        pass.alert("invalid", "red", "Campo obrigatório!");
         hasError = true;
     } else {
-        passOk();
+        pass.clearAlert();
     }
 
     if (!hasError) {

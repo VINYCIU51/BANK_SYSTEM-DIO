@@ -1,43 +1,53 @@
-import { emptyEmail, isValidEmail, invalidEmail, EmailOk } from "../validations/email-validation.js";
-import { emptyPass, invalidPass, passOk, isEqualPass, viewPassword, diferentPass } from "../validations/pass-validation.js";
+import { EmailValidation } from "../validations/email-validation.js";
+import { PasswordValidation } from "../validations/pass-validation.js";
 
+// Inicializa as validações
+const email = new EmailValidation();
+const pass = new PasswordValidation();
+
+//  monitora o click do botao
 document.querySelectorAll(".view-password").forEach(button => {
-    button.addEventListener("click", viewPassword);
+    button.addEventListener("click", pass.viewPassword.bind(pass));
 });
 
+// Monitora cada digito no campo senha para calculo de força
+if (pass.input) {
+    pass.input.addEventListener("input", () => {
+        if (pass.input.value.trim() === "") {
+            return;
+        }
+        pass.clearAlert();
+        pass.strong();
+    });
+}
+
+// monitora o envio do formulario
 document.getElementById("signupForm").addEventListener("submit", (event) => {
     event.preventDefault();
 
     let hasError = false;
 
     // Validação do e-mail
-    if (emptyEmail()) {
-        invalidEmail("Campo obrigatório!");
+    if (email.isEmpty()) {
+        email.alert("Campo obrigatório!");
         hasError = true;
-    } else if (!isValidEmail()) {
-        invalidEmail("Formato inválido!");
+    } else if (!email.isValid()) {
+        email.alert("Formato inválido!");
         hasError = true;
     } else {
-        EmailOk();
+        email.clearAlert();
     }
 
     // Validação da senha
-    if (emptyPass()) {
-        invalidPass("Campo obrigatório!");
+    if (pass.isEmpty()) {
+        pass.alert("invalid", "red", "Campo obrigatório!");
         hasError = true;
-    } else if (!isEqualPass()) {
-        diferentPass("Senhas divergentes!");
+    } else if (!pass.confirmed()) {
+        pass.confirmAlert("Senhas divergentes!");
         hasError = true;
     }
-
-
-
-
-
-
-
     else {
-        passOk();
+        pass.clearAlert();
     }
 
     if (!hasError) {
