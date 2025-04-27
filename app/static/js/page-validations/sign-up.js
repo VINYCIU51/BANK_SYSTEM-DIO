@@ -1,13 +1,15 @@
-import { EmailValidation } from "../validations/email-validation.js";
-import { PasswordValidation } from "../validations/pass-validation.js";
+import { ConfirmPassValidation } from "../validations/confirmPass.js";
+import { EmailValidation } from "../validations/email.js";
+import { PasswordValidation } from "../validations/pass.js";
 
 // Inicializa as validações
 const email = new EmailValidation();
 const pass = new PasswordValidation();
+const confirmPass = new ConfirmPassValidation();
 
 //  monitora o click do botao
 document.querySelectorAll(".view-password").forEach(button => {
-    button.addEventListener("click", pass.viewPassword.bind(pass));
+    button.addEventListener("click", (event) => pass.view(event));
 });
 
 // Monitora cada digito no campo senha para calculo de força
@@ -42,12 +44,13 @@ document.getElementById("signupForm").addEventListener("submit", (event) => {
     if (pass.isEmpty()) {
         pass.alert("invalid", "red", "Campo obrigatório!");
         hasError = true;
-    } else if (!pass.confirmed()) {
-        pass.confirmAlert("Senhas divergentes!");
+    } else if (!confirmPass.confirmed()) {
+        confirmPass.alert("Senhas divergentes!");
         hasError = true;
     }
     else {
         pass.clearAlert();
+        confirmPass.clearAlert();
     }
 
     if (!hasError) {

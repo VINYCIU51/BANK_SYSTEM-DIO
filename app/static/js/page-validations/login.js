@@ -1,5 +1,5 @@
-import { EmailValidation } from "../validations/email-validation.js";
-import { PasswordValidation } from "../validations/pass-validation.js";
+import { EmailValidation } from "../validations/email.js";
+import { PasswordValidation } from "../validations/pass.js";
 
 // Inicializa as validações
 const email = new EmailValidation();
