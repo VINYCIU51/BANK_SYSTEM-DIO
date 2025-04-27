@@ -1,6 +1,6 @@
 import { Alert } from "../utils/alerts.js";
 
-export class PasswordValidation {
+export class Password {
     constructor() {
         this.input = document.getElementById("password");
         this.error = document.getElementById("password-error");
@@ -49,6 +49,14 @@ export class PasswordValidation {
         } else {
             this.alert("strong", "green", "Senha forte!");
         }
+    }
+
+    validate() {
+        if (this.isEmpty()) {
+            this.alert("invalid", "red", "Campo obrigatório!");
+            return false;
+        }
+        return true;
     }
 
     // Configura listeners para o campo de senha

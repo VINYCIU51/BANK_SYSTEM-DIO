@@ -1,6 +1,6 @@
-import { Alert } from "../utils/alerts";
+import { Alert } from "../utils/alerts.js";
 
-export class PhoneValidation {
+export class Phone {
    constructor() {
       this.input = document.getElementById("phone");
       this.error = document.getElementById("phone-error");
@@ -11,12 +11,21 @@ export class PhoneValidation {
       }
    }
 
+   alert(message) {
+      Alert.show(this.input, this.error, { type: "invalid", color: "red", message });
+   }
+
+   clearAlert() {
+      Alert.clear(this.input, this.error);
+   }
+
    isEmpty() {
       return this.input.value.trim() === "";
    }
 
-   alert(type, color, message) {
-      return Alert.show(this.input, this.error, { type, color, message });
+   isValidLength() {
+      let number = this.input.value.replace(/\D/g, "");
+      return number.length === 11;
    }
 
    // formata o numero telefonico e bloqueia letras no processo
@@ -35,9 +44,22 @@ export class PhoneValidation {
 
    }
 
+   validate() {
+      if (this.isEmpty()) {
+         this.alert("Campo obrigatório!");
+         return false;
+      }
+      if (!this.isValidLength()) {
+         this.alert("Dígitos insuficientes!");
+         return false;
+      }
+      return true;
+   }
+
    // monitora o campo de input a cada digito
    setupEventListener() {
       this.input.addEventListener("input", () => {
+         this.clearAlert();
          this.formatPhone();
       });
    }

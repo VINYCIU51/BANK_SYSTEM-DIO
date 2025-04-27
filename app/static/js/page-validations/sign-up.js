@@ -1,13 +1,14 @@
 import { ViewPassword } from "../utils/buttons/viewPassword.js";
-import { ConfirmPassValidation } from "../validations/confirmPass.js";
-import { EmailValidation } from "../validations/email.js";
-import { PasswordValidation } from "../validations/pass.js";
-
+import { ConfirmPassword } from "../validations/confirmPass.js";
+import { Email } from "../validations/email.js";
+import { Password } from "../validations/pass.js";
+import { Phone } from "../validations/phone.js";
 
 // Inicializa as validações
-const email = new EmailValidation();
-const pass = new PasswordValidation();
-const confirmPass = new ConfirmPassValidation();
+const email = new Email();
+const pass = new Password();
+const confirmPass = new ConfirmPassword();
+const phone = new Phone();
 
 
 //  monitora o click do botao
@@ -33,25 +34,21 @@ document.getElementById("signupForm").addEventListener("submit", (event) => {
 
     let hasError = false;
 
-
-
-    // Validação do e-mail
-    if (email.isEmpty()) {
-        email.alert("Campo obrigatório!");
+    // validacao de telefone
+    if (!phone.validate()) {
         hasError = true;
     }
-    if (!email.isValid()) {
-        email.alert("Formato inválido!");
+
+    // Validação do e-mail
+    if (email.validate()) {
         hasError = true;
     }
 
     // Validação da senha
-    if (pass.isEmpty()) {
-        pass.alert("invalid", "red", "Campo obrigatório!");
+    if (!pass.validate()) {
         hasError = true;
     }
-    if (!confirmPass.confirmed()) {
-        confirmPass.alert("Senhas divergentes!");
+    if (!confirmPass.validate()) {
         hasError = true;
     }
 

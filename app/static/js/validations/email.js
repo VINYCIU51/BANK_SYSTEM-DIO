@@ -1,6 +1,6 @@
 import { Alert } from "../utils/alerts.js";
 
-export class EmailValidation {
+export class Email {
     constructor() {
         this.input = document.getElementById("email");
         this.error = document.getElementById("email-error");
@@ -30,6 +30,18 @@ export class EmailValidation {
     isValid() {
         const format = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return format.test(this.input.value);
+    }
+
+    validate() {
+        if (this.isEmpty()) {
+            this.alert("Campo obrigatório!");
+            return false;
+        }
+        if (!this.isValid()) {
+            this.alert("Formato inválido!");
+            return false;
+        }
+        return true;
     }
 
     // Configura os event listeners

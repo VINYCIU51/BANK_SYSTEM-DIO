@@ -1,6 +1,6 @@
 import { Alert } from "../utils/alerts.js";
 
-export class ConfirmPassValidation {
+export class ConfirmPassword {
     constructor() {
         this.password = document.getElementById("password");
         this.input = document.getElementById("confirm-password");
@@ -27,6 +27,19 @@ export class ConfirmPassValidation {
         return this.input.value === this.password.value;
     }
 
+    validate() {
+        if (this.input.value.trim() === "") {
+            this.alert("Campo obrigatório!");
+            return false;
+        }
+
+        if (!this.confirmed()) {
+            this.alert("Senhas divergentes!");
+            return false;
+        }
+        return true;
+    }
+
     // Configura listeners para o campo de confirmação de senha
     setupConfirmPassListeners() {
         // Validação quando o campo perde o foco (blur)
@@ -34,11 +47,6 @@ export class ConfirmPassValidation {
             if (this.input.value.trim() === "" && this.password.value.trim() === "") {
                 return;
             }
-
-            if (!this.confirmed()) {
-                this.alert("Senhas divergentes!");
-            }
-
             this.clearAlert();
         });
 
