@@ -1,3 +1,5 @@
+import { Alert } from "../utils/alerts.js";
+
 export class PasswordValidation {
     constructor() {
         this.input = document.getElementById("password");
@@ -10,19 +12,13 @@ export class PasswordValidation {
     }
 
     // exibe um alerta na senha
-    alert(type, color, menssage) {
-        this.clearAlert(); // reseta alguma cor residual
-
-        this.input.classList.add(type);
-        this.error.style.color = color;
-        this.error.textContent = menssage;
+    alert(type, color, message) {
+        Alert.show(this.input, this.error, { type, color, message });
     }
 
     // remove o alerta de erro da senha
     clearAlert() {
-        this.input.classList.remove("invalid", "weak", "strong");
-        this.error.style.color = "black";
-        this.error.textContent = "";
+        Alert.clear(this.input, this.error);
     }
 
     // verifica se o campo esta vazio
@@ -31,7 +27,7 @@ export class PasswordValidation {
     }
 
     // verifica a força da senha
-    strong() {
+    calculeStrong() {
         const password = this.input.value;
         const specialChars = password.match(/[^a-zA-Z0-9]/g) || [];
         const uniqueChars = new Set(password).size;
@@ -53,19 +49,6 @@ export class PasswordValidation {
         } else {
             this.alert("strong", "green", "Senha forte!");
         }
-    }
-
-    // altera o botao e exibe ou oculta a senha
-    view(event) {
-        const button = event.currentTarget;
-        const container = button.closest(".input-container");
-        const input = container.querySelector("input[type='password'], input[type='text']");
-
-        input.type = input.type === "password" ? "text" : "password";
-
-        const icon = button.querySelector("i");
-        icon.classList.toggle("fa-eye");
-        icon.classList.toggle("fa-eye-slash");
     }
 
     // Configura listeners para o campo de senha
