@@ -13,7 +13,7 @@ export class Email {
 
     // exibe um alerta no email
     alert(message) {
-        Alert.show(this.input, this.error, { type: "invalid", color: "red", message });
+        Alert.show(this.input, this.error, { message });
     }
 
     // remove o alerta de erro do email
@@ -32,6 +32,7 @@ export class Email {
         return format.test(this.input.value);
     }
 
+    // faz as validacoes do campo
     validate() {
         if (this.isEmpty()) {
             this.alert("Campo obrigatório!");
@@ -44,27 +45,10 @@ export class Email {
         return true;
     }
 
-    // Configura os event listeners
+    // Monitora cada digito no campo
     setupEventListeners() {
-        // retira a cor vermelha ao digitar novamente
         this.input.addEventListener("input", () => {
-            if (this.input.value.trim() !== "") {
-                this.clearAlert();
-            }
-        });
-
-        // Validação quando o campo perde o foco (blur)
-        this.input.addEventListener("blur", (e) => {
-            const email = e.target.value;
-
-            // evita que haja luz de erro só de passar pelo campo
-            if (email === "") {
-                return this.clearAlert();
-            }
-            if (!this.isValid()) {
-                return this.alert("Formato inválido!");
-            }
-            this.clearAlert();
+            this.clearAlert()
         });
     }
 }

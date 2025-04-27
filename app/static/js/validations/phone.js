@@ -11,18 +11,22 @@ export class Phone {
       }
    }
 
+   // exibe os alertas no campo de telefone
    alert(message) {
-      Alert.show(this.input, this.error, { type: "invalid", color: "red", message });
+      Alert.show(this.input, this.error, { message });
    }
 
+   // limpa os alertas
    clearAlert() {
       Alert.clear(this.input, this.error);
    }
 
+   // verifica se o campo está vazio
    isEmpty() {
       return this.input.value.trim() === "";
    }
 
+   //  verifica se foram digitados todos os digitos
    isValidLength() {
       let number = this.input.value.replace(/\D/g, "");
       return number.length === 11;
@@ -33,17 +37,17 @@ export class Phone {
       let number = this.input.value.replace(/\D/g, "");
 
       if (number.length <= 2) {
-         this.input.value = number;
+         return this.input.value = number;
       }
-      else if (number.length <= 7) {
-         this.input.value = `(${number.slice(0, 2)}) ${number.slice(2)}`;
+      if (number.length <= 7) {  // adiciona os parenteses
+         return this.input.value = `(${number.slice(0, 2)}) ${number.slice(2)}`;
       }
-      else {
-         this.input.value = `(${number.slice(0, 2)}) ${number.slice(2, 7)}-${number.slice(7, 11)}`;
-      }
+      // formata em (00) 0000 - 0000
+      this.input.value = `(${number.slice(0, 2)}) ${number.slice(2, 7)}-${number.slice(7, 11)}`;
 
    }
 
+   // valida o campo
    validate() {
       if (this.isEmpty()) {
          this.alert("Campo obrigatório!");

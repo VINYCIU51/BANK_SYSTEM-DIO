@@ -1,5 +1,6 @@
 import { ViewPassword } from "../utils/buttons/viewPassword.js";
 import { ConfirmPassword } from "../validations/confirmPass.js";
+import { Cpf } from "../validations/cpf.js";
 import { Email } from "../validations/email.js";
 import { Password } from "../validations/pass.js";
 import { Phone } from "../validations/phone.js";
@@ -9,6 +10,7 @@ const email = new Email();
 const pass = new Password();
 const confirmPass = new ConfirmPassword();
 const phone = new Phone();
+const cpf = new Cpf();
 
 
 //  monitora o click do botao
@@ -17,16 +19,10 @@ document.querySelectorAll(".view-password").forEach(button => {
 });
 
 // Monitora cada digito no campo senha para calculo de força
-if (pass.input) {
-    pass.input.addEventListener("input", () => {
-        if (pass.isEmpty()) {
-            pass.clearAlert();
-            return;
-        }
-        pass.clearAlert();
-        pass.calculeStrong();
-    });
-}
+pass.input.addEventListener("input", () => {
+    if (pass.isEmpty() ? pass.clearAlert() : pass.calculeStrong());
+});
+
 
 // monitora o envio do formulario
 document.getElementById("signupForm").addEventListener("submit", (event) => {
@@ -34,13 +30,17 @@ document.getElementById("signupForm").addEventListener("submit", (event) => {
 
     let hasError = false;
 
+    if (!cpf.validate()) {
+        hasError = true;
+    }
+
     // validacao de telefone
     if (!phone.validate()) {
         hasError = true;
     }
 
     // Validação do e-mail
-    if (email.validate()) {
+    if (!email.validate()) {
         hasError = true;
     }
 

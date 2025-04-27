@@ -1,8 +1,10 @@
 import { Alert } from "../utils/alerts.js";
+import { Password } from "./pass.js";
+
+const pass = new Password();
 
 export class ConfirmPassword {
     constructor() {
-        this.password = document.getElementById("password");
         this.input = document.getElementById("confirm-password");
         this.error = document.getElementById("confirmPass-error");
 
@@ -19,16 +21,22 @@ export class ConfirmPassword {
 
     // exibe um alerta na senha diferente
     alert(message) {
-        Alert.show(this.input, this.error, { type: "invalid", color: "red", message });
+        Alert.show(this.input, this.error, { message });
+    }
+
+    // verifica se o campo esta vazio
+    isEmpty() {
+        return this.input.value.trim() === "";
     }
 
     // verifica se o usuario digitou as confirmacao de senha corretamente
     confirmed() {
-        return this.input.value === this.password.value;
+        return this.input.value === pass.input.value;
     }
 
+    // faz as validacoes necessarias no campo
     validate() {
-        if (this.input.value.trim() === "") {
+        if (this.isEmpty()) {
             this.alert("Campo obrigatório!");
             return false;
         }
@@ -40,20 +48,9 @@ export class ConfirmPassword {
         return true;
     }
 
-    // Configura listeners para o campo de confirmação de senha
+    // Monitora cada digito no campo
     setupConfirmPassListeners() {
-        // Validação quando o campo perde o foco (blur)
-        this.input.addEventListener("blur", () => {
-            if (this.input.value.trim() === "" && this.password.value.trim() === "") {
-                return;
-            }
-            this.clearAlert();
-        });
-
         this.input.addEventListener("input", () => {
-            if (this.input.value.trim() === "") {
-                return;
-            }
             this.clearAlert();
         });
     }

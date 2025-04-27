@@ -51,6 +51,7 @@ export class Password {
         }
     }
 
+    // valida o campo de senha
     validate() {
         if (this.isEmpty()) {
             this.alert("invalid", "red", "Campo obrigatório!");
@@ -59,13 +60,9 @@ export class Password {
         return true;
     }
 
-    // Configura listeners para o campo de senha
+    // Monitora cada digito no campo senha
     setupPassListeners() {
-        // Monitora cada digito no campo senha
         this.input.addEventListener("input", () => {
-            if (this.input.value.trim() === "") {
-                return;
-            }
             this.clearAlert();
         });
     }
