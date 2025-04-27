@@ -15,19 +15,16 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
     if (email.isEmpty()) {
         email.alert("Campo obrigatório!");
         hasError = true;
-    } else if (!email.isValid()) {
+    }
+    if (!email.isValid()) {
         email.alert("Formato inválido!");
         hasError = true;
-    } else {
-        email.clearAlert();
     }
 
     // Validação da senha
     if (pass.isEmpty()) {
         pass.alert("invalid", "red", "Campo obrigatório!");
         hasError = true;
-    } else {
-        pass.clearAlert();
     }
 
     if (!hasError) {
