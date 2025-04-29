@@ -7,7 +7,7 @@ export class Email {
 
         // configura listeners se os elementos existirem
         if (this.input && this.error) {
-            this.setupEventListeners();
+            this.setupListeners();
         }
     }
 
@@ -39,14 +39,19 @@ export class Email {
             return false;
         }
         if (!this.isValid()) {
-            this.alert("Formato inválido!");
+            this.alert("formato inválido!");
+
+            setTimeout(() => {
+                this.alert("Use exemplo@dominio.com");
+            }, 2300);
+
             return false;
         }
         return true;
     }
 
     // Monitora cada digito no campo
-    setupEventListeners() {
+    setupListeners() {
         this.input.addEventListener("input", () => {
             this.clearAlert()
         });

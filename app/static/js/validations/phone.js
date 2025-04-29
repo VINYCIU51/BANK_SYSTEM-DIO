@@ -7,7 +7,7 @@ export class Phone {
 
       // ativa os listeners se o campo existir
       if (this.input && this.error) {
-         this.setupEventListener();
+         this.setupListeners();
       }
    }
 
@@ -61,7 +61,7 @@ export class Phone {
    }
 
    // monitora o campo de input a cada digito
-   setupEventListener() {
+   setupListeners() {
       this.input.addEventListener("input", () => {
          this.clearAlert();
          this.formatPhone();

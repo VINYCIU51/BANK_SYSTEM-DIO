@@ -10,7 +10,7 @@ export class ConfirmPassword {
 
         //  configura listeners se os elementos existirem
         if (this.input && this.error) {
-            this.setupConfirmPassListeners();
+            this.setupListeners();
         }
     }
 
@@ -49,7 +49,7 @@ export class ConfirmPassword {
     }
 
     // Monitora cada digito no campo
-    setupConfirmPassListeners() {
+    setupListeners() {
         this.input.addEventListener("input", () => {
             this.clearAlert();
         });

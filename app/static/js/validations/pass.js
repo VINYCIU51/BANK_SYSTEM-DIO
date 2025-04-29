@@ -7,7 +7,7 @@ export class Password {
 
         // configura listeners se os elementos existirem
         if (this.input && this.error) {
-            this.setupPassListeners();
+            this.setupListeners();
         }
     }
 
@@ -61,7 +61,7 @@ export class Password {
     }
 
     // Monitora cada digito no campo senha
-    setupPassListeners() {
+    setupListeners() {
         this.input.addEventListener("input", () => {
             this.clearAlert();
         });

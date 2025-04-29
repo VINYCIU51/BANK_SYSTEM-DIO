@@ -1,4 +1,5 @@
 import { ViewPassword } from "../utils/buttons/viewPassword.js";
+import { BirthDate } from "../validations/birthDate.js";
 import { ConfirmPassword } from "../validations/confirmPass.js";
 import { Cpf } from "../validations/cpf.js";
 import { Email } from "../validations/email.js";
@@ -11,6 +12,7 @@ const pass = new Password();
 const confirmPass = new ConfirmPassword();
 const phone = new Phone();
 const cpf = new Cpf();
+const birthDate = new BirthDate();
 
 
 //  monitora o click do botao
@@ -29,6 +31,10 @@ document.getElementById("signupForm").addEventListener("submit", (event) => {
     event.preventDefault();
 
     let hasError = false;
+
+    if (!birthDate.validate()) {
+        hasError = true;
+    }
 
     if (!cpf.validate()) {
         hasError = true;

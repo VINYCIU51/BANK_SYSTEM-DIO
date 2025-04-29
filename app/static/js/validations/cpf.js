@@ -7,7 +7,7 @@ export class Cpf {
 
         // verifica se o campo existe para adicionar os listeners
         if (this.input && this.error) {
-            this.setupEventListeners();
+            this.setupListeners();
         }
     }
 
@@ -63,7 +63,7 @@ export class Cpf {
     }
 
     // monitora o campo a cada input
-    setupEventListeners() {
+    setupListeners() {
         this.input.addEventListener("input", () => {
             this.clearAlert();
             this.formatCpf();
