@@ -14,16 +14,6 @@ export class Names {
         }
     }
 
-    // exibe um alerta no campo
-    alert(message) {
-        Alert.show(this.input, this.error, { message });
-    }
-
-    // remove o alerta de erro do campo
-    clearAlert() {
-        Alert.clear(this.input, this.error);
-    }
-
     // verifica se o campo está vazio
     isEmpty() {
         return this.input.value.trim() === "";
@@ -44,7 +34,7 @@ export class Names {
     // faz as verificacoes do campo
     validate() {
         if (this.isEmpty()) {
-            this.alert("Campo obrigatório!");
+            Alert.show(this.input, this.error, { message: "Campo obrigatório!" });
             return false;
         }
         return true;
@@ -53,14 +43,14 @@ export class Names {
     // monitora a cada input
     setupListeners() {
         this.input.addEventListener("input", () => {
-            this.clearAlert();
+            Alert.clear(this.input, this.error);
             this.validCharacter();
         })
 
         // puramente preguiça de criar um arquivo apenas para o campo de nome materno
         if (this.motherName) {
             this.motherName.addEventListener("input", () => {
-                this.clearAlert();
+                Alert.clear(this.motherName, this.error);
                 this.validCharacter();
             })
         }

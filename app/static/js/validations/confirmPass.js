@@ -14,16 +14,6 @@ export class ConfirmPassword {
         }
     }
 
-    // remove o alerta no campo de confirmacao
-    clearAlert() {
-        Alert.clear(this.input, this.error);
-    }
-
-    // exibe um alerta na senha diferente
-    alert(message) {
-        Alert.show(this.input, this.error, { message });
-    }
-
     // verifica se o campo esta vazio
     isEmpty() {
         return this.input.value.trim() === "";
@@ -37,12 +27,12 @@ export class ConfirmPassword {
     // faz as validacoes necessarias no campo
     validate() {
         if (this.isEmpty()) {
-            this.alert("Campo obrigatório!");
+            Alert.show(this.input, this.error, { message: "Campo obrigatório!" });
             return false;
         }
 
         if (!this.confirmed()) {
-            this.alert("Senhas divergentes!");
+            Alert.show(this.input, this.error, { message: "Senhas divergentes!" });
             return false;
         }
         return true;
@@ -51,7 +41,7 @@ export class ConfirmPassword {
     // Monitora cada digito no campo
     setupListeners() {
         this.input.addEventListener("input", () => {
-            this.clearAlert();
+            Alert.clear(this.input, this.error);
         });
     }
 }

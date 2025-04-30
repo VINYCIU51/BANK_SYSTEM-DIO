@@ -11,16 +11,6 @@ export class BirthDate {
         }
     }
 
-    // exibe um alerta no campo
-    alert(message) {
-        Alert.show(this.input, this.error, { message });
-    }
-
-    // remove o alerta de erro do campo
-    clearAlert() {
-        Alert.clear(this.input, this.error);
-    }
-
     // verifica se o campo está vazio
     isEmpty() {
         return this.input.value.trim() === "";
@@ -30,6 +20,18 @@ export class BirthDate {
     isValidLength() {
         const date = this.input.value.replace(/[^\d]/g, "");
         return date.length === 8;
+    }
+
+    // Nome mais claro e semanticamente correto
+    getUserAge() {
+        const [day, month, year] = this.input.value.trim().split('/').map(Number);
+        const currentYear = new Date().getFullYear();
+
+        if (year > currentYear) {
+            return null;
+        }
+
+        return currentYear - year;
     }
 
     // formata a data e elimina caracteres inválidos
@@ -48,12 +50,20 @@ export class BirthDate {
 
     // faz as verificacoes do campo
     validate() {
-        if (this.isEmpty()) {
-            this.alert("Campo obrigatório!");
+        if (this.isEmpty()) { // valida a entrada no campo
+            Alert.show(this.input, this.error, { message: "Campo obrigatório!" });
             return false;
         }
-        if (!this.isValidLength()) {
-            this.alert("Digitos insuficientes!");
+        if (!this.isValidLength()) {  // valida a quant de digitos
+            Alert.show(this.input, this.error, { message: "Digitos insuficientes!" });
+            return false;
+        }
+        if (this.getUserAge() > 120 || this.getUserAge() === null) { // verifica se o ano digitado é valido
+            Alert.show(this.input, this.error, { message: "idade inválida!" });
+            return false;
+        }
+        if (this.getUserAge() < 18) { // valida a maioridade do usuario
+            Alert.show(this.input, this.error, { message: "Idade insuficiente!" });
             return false;
         }
         return true;
@@ -62,7 +72,7 @@ export class BirthDate {
     // monitora a cada input
     setupListeners() {
         this.input.addEventListener("input", () => {
-            this.clearAlert();
+            Alert.clear(this.input, this.error);
             this.formateDate();
         })
     }

@@ -11,16 +11,6 @@ export class Phone {
       }
    }
 
-   // exibe os alertas no campo de telefone
-   alert(message) {
-      Alert.show(this.input, this.error, { message });
-   }
-
-   // limpa os alertas
-   clearAlert() {
-      Alert.clear(this.input, this.error);
-   }
-
    // verifica se o campo está vazio
    isEmpty() {
       return this.input.value.trim() === "";
@@ -44,17 +34,16 @@ export class Phone {
       }
       // formata em (00) 0000 - 0000
       this.input.value = `(${number.slice(0, 2)}) ${number.slice(2, 7)}-${number.slice(7, 11)}`;
-
    }
 
    // valida o campo
    validate() {
       if (this.isEmpty()) {
-         this.alert("Campo obrigatório!");
+         Alert.show(this.input, this.error, { message: "Campo obrigatório!" });
          return false;
       }
       if (!this.isValidLength()) {
-         this.alert("Dígitos insuficientes!");
+         Alert.show(this.input, this.error, { message: "Dígitos insuficientes!" });
          return false;
       }
       return true;
@@ -63,7 +52,7 @@ export class Phone {
    // monitora o campo de input a cada digito
    setupListeners() {
       this.input.addEventListener("input", () => {
-         this.clearAlert();
+         Alert.clear(this.input, this.error);
          this.formatPhone();
       });
    }

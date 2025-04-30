@@ -11,16 +11,6 @@ export class Email {
         }
     }
 
-    // exibe um alerta no email
-    alert(message) {
-        Alert.show(this.input, this.error, { message });
-    }
-
-    // remove o alerta de erro do email
-    clearAlert() {
-        Alert.clear(this.input, this.error);
-    }
-
     // verifica se o campo está vazio
     isEmpty() {
         return this.input.value.trim() === "";
@@ -35,14 +25,14 @@ export class Email {
     // faz as validacoes do campo
     validate() {
         if (this.isEmpty()) {
-            this.alert("Campo obrigatório!");
+            Alert.show(this.input, this.error, { message: "Campo obrigatório!" });
             return false;
         }
         if (!this.isValid()) {
-            this.alert("formato inválido!");
+            Alert.show(this.input, this.error, { message: "formato inválido!" });
 
             setTimeout(() => {
-                this.alert("Use exemplo@dominio.com");
+                Alert.show(this.input, this.error, { message: "Use exemplo@dominio.com" });
             }, 2300);
 
             return false;
@@ -53,7 +43,7 @@ export class Email {
     // Monitora cada digito no campo
     setupListeners() {
         this.input.addEventListener("input", () => {
-            this.clearAlert();
+            Alert.clear(this.input, this.error);
         });
     }
 }

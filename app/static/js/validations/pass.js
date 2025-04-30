@@ -11,16 +11,6 @@ export class Password {
         }
     }
 
-    // exibe um alerta na senha
-    alert(type, color, message) {
-        Alert.show(this.input, this.error, { type, color, message });
-    }
-
-    // remove o alerta de erro da senha
-    clearAlert() {
-        Alert.clear(this.input, this.error);
-    }
-
     // verifica se o campo esta vazio
     isEmpty() {
         return this.input.value.trim() === "";
@@ -41,20 +31,20 @@ export class Password {
         const strong = ((specialChars.length / password.length) * 35) + ((uniqueChars / password.length) * 35) + complexity;
 
         if (password.length < 8) {
-            this.alert("invalid", "red", "Mínimo 8 dígitos!");
+            Alert.show(this.input, this.error, { type: "invalid", color: "red", message: "Mínimo 8 dígitos!" });
         } else if (strong < 50) {
-            this.alert("weak", "yellow", "Senha fraca!");
+            Alert.show(this.input, this.error, { type: "weak", color: "yellow", message: "Senha fraca!" });
         } else if (strong >= 50 && strong < 70) {
-            this.alert("middle", "greenyellow", "Senha média!");
+            Alert.show(this.input, this.error, { type: "middle", color: "greenyellow", message: "Senha média!" });
         } else {
-            this.alert("strong", "green", "Senha forte!");
+            Alert.show(this.input, this.error, { type: "strong", color: "green", message: "Senha forte!" });
         }
     }
 
     // valida o campo de senha
     validate() {
         if (this.isEmpty()) {
-            this.alert("invalid", "red", "Campo obrigatório!");
+            Alert.show(this.input, this.error, { type: "invalid", color: "red", message: "Campo obrigatório!" });
             return false;
         }
         return true;
@@ -63,7 +53,7 @@ export class Password {
     // Monitora cada digito no campo senha
     setupListeners() {
         this.input.addEventListener("input", () => {
-            this.clearAlert();
+            Alert.clear(this.input, this.error);
         });
     }
 }
