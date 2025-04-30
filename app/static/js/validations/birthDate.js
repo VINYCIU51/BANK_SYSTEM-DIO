@@ -35,7 +35,7 @@ export class BirthDate {
     }
 
     // formata a data e elimina caracteres inválidos
-    formateDate() {
+    formatDate() {
         let date = this.input.value.replace(/[^\d]/g, "");
 
         if (date.length <= 2) { // 00
@@ -59,7 +59,7 @@ export class BirthDate {
             return false;
         }
         if (this.getUserAge() > 120 || this.getUserAge() === null) { // verifica se o ano digitado é valido
-            Alert.show(this.input, this.error, { message: "idade inválida!" });
+            Alert.show(this.input, this.error, { message: "Data inválida!" });
             return false;
         }
         if (this.getUserAge() < 18) { // valida a maioridade do usuario
@@ -73,7 +73,7 @@ export class BirthDate {
     setupListeners() {
         this.input.addEventListener("input", () => {
             Alert.clear(this.input, this.error);
-            this.formateDate();
+            this.formatDate();
         })
     }
 }

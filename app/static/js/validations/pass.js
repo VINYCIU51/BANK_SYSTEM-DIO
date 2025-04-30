@@ -17,7 +17,7 @@ export class Password {
     }
 
     // verifica a força da senha
-    calculeStrong() {
+    calculeStrength() {
         const password = this.input.value;
         const specialChars = password.match(/[^a-zA-Z0-9]/g) || [];
         const uniqueChars = new Set(password).size;
@@ -28,13 +28,13 @@ export class Password {
         const complexity = (hasUpper + hasLower + hasNumber) * 10;
 
         // força baseada em: 35% quant de char especial + 35% quant char unicos + 30% uso de numeros,maiusculas e minusculas
-        const strong = ((specialChars.length / password.length) * 35) + ((uniqueChars / password.length) * 35) + complexity;
+        const strength = ((specialChars.length / password.length) * 35) + ((uniqueChars / password.length) * 35) + complexity;
 
         if (password.length < 8) {
             Alert.show(this.input, this.error, { type: "invalid", color: "red", message: "Mínimo 8 dígitos!" });
-        } else if (strong < 50) {
+        } else if (strength < 50) {
             Alert.show(this.input, this.error, { type: "weak", color: "yellow", message: "Senha fraca!" });
-        } else if (strong >= 50 && strong < 70) {
+        } else if (strength >= 50 && strength < 70) {
             Alert.show(this.input, this.error, { type: "middle", color: "greenyellow", message: "Senha média!" });
         } else {
             Alert.show(this.input, this.error, { type: "strong", color: "green", message: "Senha forte!" });
