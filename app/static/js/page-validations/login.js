@@ -22,6 +22,6 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
     }
 
     if (!hasError) {
-        window.location.href = "sign-up.html";
+        window.location.href = "#";
     }
 });
