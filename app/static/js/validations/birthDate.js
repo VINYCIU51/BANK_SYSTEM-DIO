@@ -11,12 +11,12 @@ export class BirthDate {
         }
     }
 
-    // exibe um alerta no email
+    // exibe um alerta no campo
     alert(message) {
         Alert.show(this.input, this.error, { message });
     }
 
-    // remove o alerta de erro do email
+    // remove o alerta de erro do campo
     clearAlert() {
         Alert.clear(this.input, this.error);
     }
@@ -62,6 +62,7 @@ export class BirthDate {
     // monitora a cada input
     setupListeners() {
         this.input.addEventListener("input", () => {
+            this.clearAlert();
             this.formateDate();
         })
     }
