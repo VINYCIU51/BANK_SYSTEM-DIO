@@ -5,6 +5,7 @@ import { Cpf } from "../validations/cpf.js";
 import { Email } from "../validations/email.js";
 import { Password } from "../validations/pass.js";
 import { Phone } from "../validations/phone.js";
+import { Names } from "../validations/names.js";
 
 // Inicializa as validações
 const email = new Email();
@@ -13,6 +14,7 @@ const confirmPass = new ConfirmPassword();
 const phone = new Phone();
 const cpf = new Cpf();
 const birthDate = new BirthDate();
+const names = new Names();
 
 
 //  monitora o click do botao
@@ -31,6 +33,10 @@ document.getElementById("signupForm").addEventListener("submit", (event) => {
     event.preventDefault();
 
     let hasError = false;
+
+    if (!names.validate()) {
+        hasError = true;
+    }
 
     if (!birthDate.validate()) {
         hasError = true;

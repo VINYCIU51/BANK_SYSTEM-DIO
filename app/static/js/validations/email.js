@@ -53,7 +53,7 @@ export class Email {
     // Monitora cada digito no campo
     setupListeners() {
         this.input.addEventListener("input", () => {
-            this.clearAlert()
+            this.clearAlert();
         });
     }
 }
