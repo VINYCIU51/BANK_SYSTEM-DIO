@@ -1,3 +1,4 @@
+import { Alert } from "../utils/alerts.js";
 import { ViewPassword } from "../utils/buttons/viewPassword.js";
 import { BirthDate } from "../validations/birthDate.js";
 import { ConfirmPassword } from "../validations/confirmPass.js";
@@ -24,7 +25,7 @@ document.querySelectorAll(".view-password").forEach(button => {
 
 // Monitora cada digito no campo senha para calculo de força
 pass.input.addEventListener("input", () => {
-    if (pass.isEmpty() ? pass.clearAlert() : pass.calculeStrong());
+    if (pass.isEmpty() ? Alert.clear(pass.input, pass.error) : pass.calculeStrong());
 });
 
 
@@ -34,14 +35,17 @@ document.getElementById("signupForm").addEventListener("submit", (event) => {
 
     let hasError = false;
 
+    // validacao de nome
     if (!names.validate()) {
         hasError = true;
     }
 
+    // validacao de data de nascimento
     if (!birthDate.validate()) {
         hasError = true;
     }
 
+    // validacao de cpf
     if (!cpf.validate()) {
         hasError = true;
     }
@@ -60,6 +64,8 @@ document.getElementById("signupForm").addEventListener("submit", (event) => {
     if (!pass.validate()) {
         hasError = true;
     }
+
+    // validacao da confirmacao de senha
     if (!confirmPass.validate()) {
         hasError = true;
     }
