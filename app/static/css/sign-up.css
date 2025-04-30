@@ -160,7 +160,7 @@ body {
         box-shadow: 0px 3px 5px rgba(255, 0, 0, 0.75) !important;
     }
 
-    /* cores para utilizacao na forca da senha */
+    /* cores para demonstrar a forca da senha */
     & .weak {
         box-shadow: 0 4px 5px yellow !important;
     }

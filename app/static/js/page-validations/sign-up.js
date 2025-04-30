@@ -20,7 +20,7 @@ const pass = new Password();
 const confirmPass = new ConfirmPassword();
 
 
-//  monitora o click do botao
+//  monitora o click do botao de visualizar senha
 document.querySelectorAll(".view-password").forEach(button => {
     button.addEventListener("click", (event) => ViewPassword.view(event));
 });
