@@ -14,6 +14,7 @@
     font-size: 1rem !important;
 }
 
+/* estilo do corpo da pagina */
 body {
     display: flex;
     flex-direction: column;
@@ -34,7 +35,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.753);
+    box-shadow: 0 5px 15px rgba(148, 148, 148, 0.74);
     font-family: "Poppins";
     padding: 30px;
 
@@ -78,6 +79,7 @@ body {
     & input {
         width: 100%;
         padding: 12px;
+        padding-right: 40px;
         font-size: 1rem;
         border: none;
         outline: none;
@@ -147,7 +149,7 @@ body {
         position: absolute;
         right: 0px;
         bottom: 42px;
-        color: rgb(233, 14, 14);
+        color: red;
         font-size: 13px;
         margin: 0;
         padding: 0;
@@ -155,11 +157,16 @@ body {
 
     /* sombra vermelha para as areas de input erradas */
     & .invalid {
-        box-shadow: 0px 4px 5px rgba(255, 0, 0, 0.75) !important;
+        box-shadow: 0px 3px 5px rgba(255, 0, 0, 0.75) !important;
     }
 
+    /* cores para utilizacao na forca da senha */
     & .weak {
         box-shadow: 0 4px 5px yellow !important;
+    }
+
+    & .middle {
+        box-shadow: 0 4px 5px greenyellow !important;
     }
 
     & .strong {
