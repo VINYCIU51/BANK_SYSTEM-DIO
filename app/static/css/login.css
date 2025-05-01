@@ -22,7 +22,7 @@ body {
     align-items: center;
     justify-content: space-around;
     min-height: 100vh;
-    background: url(/app/static/images/background.png) center / cover no-repeat;
+    background: url(/app/static/images/wave.jpg) center / cover no-repeat;
 
     /* query que modifica a a pagina para vertical e horizontal */
     @media (max-width: 1224px) {
@@ -180,7 +180,7 @@ body {
     & input:focus,
     & input:hover,
     & input:not(:placeholder-shown) {
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(97, 97, 97, 0.8));
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(29, 29, 29, 0.8));
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
         transform: scale(1.008);
     }
