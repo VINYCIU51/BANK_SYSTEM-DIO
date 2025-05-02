@@ -1,0 +1,110 @@
+/* reset padrao */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* estilos do corpo da pagina */
+body {
+    padding: 2%;
+    display: grid;
+    grid-template-areas:
+        "side-bar content";
+    grid-template-columns: 15% auto;
+    column-gap: 2%;
+    background: url(/app/static/images/wave.jpg) center / cover no-repeat;
+    height: 100vh;
+
+    /* diminui o tamanho da side bar em telas menores */
+    @media (max-width: 768px) {
+        grid-template-columns: 10% auto;
+    }
+}
+
+/* estilos da side bar */
+.side-bar {
+    grid-area: "side-bar";
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(130deg, #acacac30, #09090930);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 5px 15px rgba(148, 148, 148, 0.5);
+    border-radius: 15px;
+    padding: 20px 0;
+
+    /* logo de coruja */
+    & .logo {
+        & img {
+            height: clamp(30px, 10vw, 80px);
+            width: clamp(30px, 10vw, 80px);
+        }
+    }
+
+    /* area das acoes principais */
+    & .options {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        width: 100%;
+    }
+
+    /* area do botao */
+    & .buttons {
+        width: 100%;
+        border-radius: 5px;
+
+        /* botao em si */
+        & button {
+            width: 100%;
+            height: 2.5rem;
+            border: none;
+            background: transparent;
+            color: #F0EBE3;
+            font-size: 1rem;
+            text-align: start;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            /* simbolo do botao */
+            & i {
+                width: 20px;
+                text-align: center;
+            }
+        }
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    /* diminui o tamanho da fonte em telas medias para caber na side bar */
+    @media (max-width: 1050px) {
+        & label {
+            font-size: 0.7rem;
+        }
+    }
+
+    /* deixa a fonte invisivel quando o espaó é muito pequeno */
+    @media (max-width: 768px) {
+        & label {
+            font-size: 0px;
+        }
+    }
+
+}
+
+
+.content {
+    grid-area: "content";
+    background: linear-gradient(130deg, #acacac30, #09090930);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 5px 15px rgba(148, 148, 148, 0.5);
+    border-radius: 15px;
+}
