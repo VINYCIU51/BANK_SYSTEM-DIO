@@ -114,10 +114,10 @@ body {
     width: clamp(350px, 50vw, 600px);
     background: linear-gradient(130deg, #acacac30, #09090930);
     backdrop-filter: blur(3px);
+    box-shadow: 0 5px 15px rgba(148, 148, 148, 0.74);
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(148, 148, 148, 0.74);
     font-family: "Poppins";
 
     /* titulo de login */
