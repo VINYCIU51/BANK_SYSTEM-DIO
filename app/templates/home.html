@@ -24,6 +24,7 @@
             <!-- botao da pagina inicial -->
             <div class="buttons">
                 <button class="home">
+                    <label id="signal" for="home"></label>
                     <i id="home" class="fas fa-house"></i>
                     <label for="home">Home</label>
                 </button>
@@ -53,14 +54,6 @@
                 </button>
             </div>
 
-            <!-- botao de configuracoes -->
-            <div class="buttons">
-                <button class="configs">
-                    <i id="config" class="fas fa-gear"></i>
-                    <label for="config">Configurações</label>
-                </button>
-            </div>
-
         </div>
 
         <!-- botao para deslogar da conta -->
@@ -73,8 +66,119 @@
 
     </div>
 
+    <!-- Classe responsável pela organização de toda a area principal -->
     <div class="content">
 
+        <div class="welcome">
+            <span>Bem vindo de volta Godofredo</span>
+        </div>
+
+        <!-- campo referente ao saldo do usuario -->
+        <div class="balance">
+            <span>Saldo</span>
+            <div class="current-balance">0,00</div>
+        </div>
+
+        <!-- campo referente a afatura atual do usuario -->
+        <div class="bill">
+            <span>Fatura atual</span>
+            <div class="current-bill">100,00</div>
+        </div>
+
+        <!-- campo que mostra o historico de transacoes do usuario -->
+        <div class="history">
+            <span>Histórico de transações</span>
+
+            <!-- tabela com as informacoes -->
+            <table>
+                <thead>
+                    <tr> <!-- Linha do cabeçalho -->
+                        <th>nome</th>
+                        <th>tipo</th>
+                        <th>valor</th>
+                        <th>data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> <!-- Linha do corpo -->
+                        <td>luis</td>
+                        <td>recebimento</td>
+                        <td>500</td>
+                        <td>12/15</td>
+                    </tr>
+                    <tr> <!-- Linha do corpo -->
+                        <td>luis</td>
+                        <td>recebimento</td>
+                        <td>500</td>
+                        <td>12/15</td>
+                    </tr>
+                    <tr> <!-- Linha do corpo -->
+                        <td>luis</td>
+                        <td>recebimento</td>
+                        <td>500</td>
+                        <td>12/15</td>
+                    </tr>
+                    <tr> <!-- Linha do corpo -->
+                        <td>luis</td>
+                        <td>recebimento</td>
+                        <td>500</td>
+                        <td>12/15</td>
+                    </tr>
+                    <tr> <!-- Linha do corpo -->
+                        <td>luis</td>
+                        <td>recebimento</td>
+                        <td>500</td>
+                        <td>12/15</td>
+                    </tr>
+                    <tr> <!-- Linha do corpo -->
+                        <td>luis</td>
+                        <td>recebimento</td>
+                        <td>500</td>
+                        <td>12/15</td>
+                    </tr>
+                    <tr> <!-- Linha do corpo -->
+                        <td>luis</td>
+                        <td>recebimento</td>
+                        <td>500</td>
+                        <td>12/15</td>
+                    </tr>
+                    <tr> <!-- Linha do corpo -->
+                        <td>luis</td>
+                        <td>recebimento</td>
+                        <td>500</td>
+                        <td>12/15</td>
+                    </tr>
+                    <tr> <!-- Linha do corpo -->
+                        <td>luis</td>
+                        <td>recebimento</td>
+                        <td>500</td>
+                        <td>12/15</td>
+                    </tr>
+                    <tr> <!-- Linha do corpo -->
+                        <td>luis</td>
+                        <td>recebimento</td>
+                        <td>500</td>
+                        <td>12/15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- campo para as opcoes de transacoes etc -->
+        <div class="options">
+
+            <div class="op">
+                <span>pixi</span>
+            </div>
+
+            <div class="op">
+                <span>investir</span>
+            </div>
+
+            <div class="op">
+                <span>emprestimos</span>
+            </div>
+        </div>
     </div>
 
 </body>
