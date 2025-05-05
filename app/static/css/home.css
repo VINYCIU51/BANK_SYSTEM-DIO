@@ -15,6 +15,7 @@ body {
     column-gap: 2%;
     background: url(/app/static/images/wave.jpg) center / cover no-repeat;
     height: 100vh;
+    font-family: "Poppins";
 
     /* diminui o tamanho da side bar em telas menores */
     @media (max-width: 768px) {
@@ -110,7 +111,7 @@ body {
 
 }
 
-
+/* stilo da area principal */
 .content {
     grid-area: "content";
     display: grid;
@@ -130,7 +131,7 @@ body {
     color: #F0EBE3;
     font-size: 1.5rem;
 
-
+    /* area de boas vindas */
     & .welcome {
         grid-area: welcome;
         background: #26262650;
@@ -140,11 +141,13 @@ body {
         width: 100%;
         padding: 20px;
 
+        /* texto de boas vindas */
         & span {
             font-size: 1.5rem;
         }
     }
 
+    /* area do saldo atual  */
     & .balance {
         grid-area: balance;
         position: relative;
@@ -169,6 +172,7 @@ body {
         }
     }
 
+    /* area da fatura do mes */
     & .bill {
         grid-area: bill;
         position: relative;
@@ -192,6 +196,7 @@ body {
         }
     }
 
+    /* area do historico de transacoes */
     & .history {
         grid-area: history;
         display: flex;
@@ -269,6 +274,7 @@ body {
 
     }
 
+    /* opcoes de transferir, investir etc */
     & .options {
         grid-area: options;
         display: flex;
