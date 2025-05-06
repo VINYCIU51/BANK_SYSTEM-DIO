@@ -1,28 +1,9 @@
-/*  reset padrao */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box
-}
-
-/*  reset do fill do autocomplete */
-.input-container input:-webkit-autofill,
-.input-container input:-webkit-autofill:hover,
-.input-container input:-webkit-autofill:focus,
-.input-container input:-webkit-autofill:active {
-    -webkit-text-fill-color: #000000 !important;
-    font-size: 1rem !important;
-}
-
-
 /* estilo de todo o body da pagina */
 body {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    min-height: 100vh;
-    background: url(/app/static/images/wave.jpg) center / cover no-repeat;
 
     /* query que modifica a a pagina para vertical e horizontal */
     @media (max-width: 1224px) {
@@ -52,8 +33,6 @@ body {
 
         /* nome do banco */
         & span {
-            font-family: "Poppins";
-            color: #F0EBE3;
             font-size: 4rem;
             font-weight: 900;
             transition: all 0.3s ease;
@@ -62,10 +41,7 @@ body {
         /* pequeno slogan */
         & p {
             font-size: 1rem;
-            color: #F0EBE3;
-            font-family: "Poppins";
             font-style: italic;
-            margin: 0;
             transition: all 0.3s ease;
         }
     }
@@ -112,13 +88,6 @@ body {
     row-gap: 60px;
     height: 500px;
     width: clamp(350px, 50vw, 600px);
-    background: linear-gradient(130deg, #acacac30, #09090930);
-    backdrop-filter: blur(3px);
-    box-shadow: 0 5px 15px rgba(148, 148, 148, 0.74);
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    font-family: "Poppins";
 
     /* titulo de login */
     & #login {
@@ -126,63 +95,16 @@ body {
         text-align: center;
         cursor: default;
         margin: 0;
-        color: #F0EBE3;
         text-shadow: 3px 3px 10px rgb(0, 0, 0);
     }
 }
 
 /* estilo dos campos de input */
 .input-container {
-    position: relative;
-    margin-bottom: 30px;
 
     /* campo de input */
     & input {
         width: clamp(300px, 40vw, 500px);
-        padding: 12px;
-        padding-right: 40px;
-        font-size: 1rem;
-        border: none;
-        outline: none;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 12px;
-        color: #000000;
-        font-weight: 500;
-        transition: box-shadow 0.2s ease-in, transform 0.2s ease-in;
-    }
-
-
-    /* labels (email/ senha) */
-    & label {
-        position: absolute;
-        top: 50%;
-        left: 12px;
-        transform: translateY(-50%);
-        color: #F0EBE3;
-        pointer-events: none;
-        font-weight: 400;
-        transition: 0.3s ease;
-    }
-
-    /* faz o label se mover ao mexer com o campo de input */
-    & input:focus+label,
-    & input:not(:placeholder-shown)+label,
-    & input:hover+label {
-        top: -23px;
-        left: 3px;
-        transform: scale(0.8);
-        transform-origin: left;
-        color: #F0EBE3;
-    }
-
-    /* modifica o campo de input quando se esta em foco */
-    & input:focus,
-    & input:hover,
-    & input:not(:placeholder-shown) {
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(29, 29, 29, 0.8));
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
-        transform: scale(1.008);
     }
 
     /* link de recuperacao de senha */
@@ -190,33 +112,7 @@ body {
         position: absolute;
         top: 55px;
         right: 0px;
-        font-size: 12px;
-        color: rgb(146, 146, 255);
-        transition: 0.3s ease;
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-            transform: scale(1.02);
-        }
     }
-
-    /* mensagem de erro dos campos */
-    & .input-message {
-        position: absolute;
-        right: 0px;
-        bottom: 42px;
-        color: red;
-        font-size: 13px;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* sombra vermelha para as areas de input erradas */
-    & .invalid {
-        box-shadow: 0px 3px 5px rgba(255, 0, 0, 0.75) !important;
-    }
-
 }
 
 /* area dos botoes de login e sign up */
@@ -226,48 +122,14 @@ body {
     align-items: center;
     row-gap: 15px;
 
-    /* botao de entrar */
-    .login-button {
-        width: 150px;
-        height: 35px;
-        border-radius: 12px;
-        border: none;
-        background: linear-gradient(130deg, rgb(86, 110, 248), rgb(1, 1, 206));
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.336);
-        font-size: 1.2rem;
-        font-weight: 300;
-        cursor: pointer;
-        color: #F0EBE3;
-        transition: all 0.25s ease-in;
-
-        &:hover {
-            background: transparent;
-            border: 2px solid blue;
-            box-shadow: 0 3px 10px rgb(13, 13, 250);
-            transform: scale(1.1);
-        }
-    }
-
     /* texto "nao tem conta?" */
     & p {
-        margin: 0;
-        padding: 0;
-        color: #F0EBE3;
         font-size: 11px;
 
 
         /* link de cadastro   */
         & .register {
             display: inline-block;
-            color: rgb(146, 146, 255);
-            font-size: 12px;
-            transition: 0.3s ease;
-            text-decoration: none;
-
-            &:hover {
-                text-decoration: underline;
-                transform: scale(1.02);
-            }
         }
     }
 }
