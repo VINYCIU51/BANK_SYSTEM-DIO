@@ -13,9 +13,6 @@ body {
         "side-bar content";
     grid-template-columns: 15% auto;
     column-gap: 2%;
-    background: url(/app/static/images/wave.jpg) center / cover no-repeat;
-    height: 100vh;
-    font-family: "Poppins";
 
     /* diminui o tamanho da side bar em telas menores */
     @media (max-width: 768px) {
