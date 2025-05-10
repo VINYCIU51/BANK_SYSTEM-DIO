@@ -1,0 +1,47 @@
+.content {
+    display: grid;
+    grid-template-areas:
+        "card"
+        "info";
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+.card-container {
+    grid-area: card;
+    align-content: center;
+    justify-items: center;
+    background: yellow;
+
+    & .card {
+        position: relative;
+        height: 80%;
+        width: 80%;
+        border-radius: 15px;
+        background-color: aqua;
+
+        #name {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+        }
+
+        #card-number {
+            position: absolute;
+            top: 60%;
+            left: 5%;
+        }
+
+        #date {
+            position: absolute;
+            top: 80%;
+            left: 5%;
+        }
+
+        #cvc {
+            position: absolute;
+            top: 80%;
+            left: 30%;
+        }
+    }
+}
