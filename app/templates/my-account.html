@@ -35,7 +35,7 @@
 
             <!-- botao de configuracoes de conta de usuario -->
             <div class="buttons">
-                <button class="user-account">
+                <button class="user-account" onclick="window.location.href='my-account.html'">
                     <label id="signal" for="user"></label>
                     <i id="user" class="fas fa-user"></i>
                     <label for="user">Minha conta</label>
@@ -44,7 +44,7 @@
 
             <!-- botao dos cartoes de credito -->
             <div class="buttons">
-                <button class="cards">
+                <button class="cards" onclick="window.location.href='cards.html'">
                     <i id="cards" class="fas fa-credit-card"></i>
                     <label for="cards">Cartões</label>
                 </button>
@@ -72,15 +72,45 @@
 
     <!-- Classe responsável pela organização de toda a area principal -->
     <div class="content">
-        <div class="perfil">oi</div>
+        <div class="perfil">😔</div>
 
         <div class="informations">
-            <div id="name">jorgin</div>
-            <div id="email">jorgin@gmail</div>
-            <div id="password">jorgin123</div>
-            <div id="cpf">12345678</div>
-            <div id="phone">9955555</div>
-            <div id="birth-date">12/12/12</div>
+
+            <div class="info">
+                <label for="name">Nome:</label>
+                <input id="name" placeholder="jorgin">
+                </input>
+            </div>
+
+            <div class="info">
+                <label for="email">Email:</label>
+                <input id="email" placeholder="jrgin@gmail">
+                </input>
+            </div>
+
+            <div class="info">
+                <label for="password">Senha:</label>
+                <input id="password" placeholder="123">
+                </input>
+            </div>
+
+            <div class="info">
+                <label for="cpf">CPF:</label>
+                <input id="cpf" placeholder="123123">
+                </input>
+            </div>
+
+            <div class="info">
+                <label for="phone">Telefone:</label>
+                <input id="phone" placeholder="111111">
+                </input>
+            </div>
+
+            <div class="info">
+                <label for="birth-date">Data de Nascimento:</label>
+                <input id="birth-date" placeholder="12/12/1212">
+                </input>
+            </div>
         </div>
 
 
