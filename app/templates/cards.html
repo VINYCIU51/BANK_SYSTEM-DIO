@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <link rel="stylesheet" href="/app/static/css/global-main.css">
+    <link rel="stylesheet" href="/app/static/css/cards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- div responsável pelas informacoes na side bar -->
+    <div class="side-bar">
+
+        <!-- logo de coruja -->
+        <div class="logo">
+            <img src="/app/static/images/logo.png">
+        </div>
+
+        <!-- area dos botoes de acoes -->
+        <div class="options">
+
+            <!-- botao da pagina inicial -->
+            <div class="buttons" onclick="window.location.href='home.html'">
+                <button class="home">
+                    <i id="home" class="fas fa-house"></i>
+                    <label for="home">Home</label>
+                </button>
+            </div>
+
+            <!-- botao de configuracoes de conta de usuario -->
+            <div class="buttons">
+                <button class="user-account">
+                    <i id="user" class="fas fa-user"></i>
+                    <label for="user">Minha conta</label>
+                </button>
+            </div>
+
+            <!-- botao dos cartoes de credito -->
+            <div class="buttons">
+                <button class="cards">
+                    <label id="signal" for="user"></label>
+                    <i id="cards" class="fas fa-credit-card"></i>
+                    <label for="cards">Cartões</label>
+                </button>
+            </div>
+
+            <!-- botao de notificacoes -->
+            <div class="buttons">
+                <button class="messages">
+                    <i id="messages" class="fas fa-envelope"></i>
+                    <label for="messages">Notificações</label>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- botao para deslogar da conta -->
+        <div class="buttons">
+            <button class="log-out">
+                <i id="log-out" class="fas fa-right-to-bracket"></i>
+                <label for="log-out"> Deslogar</label>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Classe responsável pela organização de toda a area principal -->
+    <div class="content">
+        <div class="card-container">
+            <div class="card">
+                <p id="name">vinycius</p>
+                <p id="card-number">12345</p>
+                <p id="date">12/37</p>
+                <p id="cvc">865</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
