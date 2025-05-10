@@ -12,5 +12,11 @@
     height: 300px;
     width: 300px;
     border-radius: 50%;
-    background: rgb(180, 180, 180);
+    background: rgb(180, 180, 180) center / cover no-repeat;
+}
+
+.informations {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
