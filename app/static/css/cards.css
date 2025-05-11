@@ -4,14 +4,16 @@
         "card"
         "info";
     grid-template-columns: 100%;
-    grid-template-rows: 1.2fr 2fr;
+    grid-template-rows: 1.5fr 2fr;
 }
 
 .card-container {
     grid-area: card;
     align-content: center;
     justify-items: center;
-    background: rgb(46, 46, 46);
+    background: #26262650;
+    backdrop-filter: blur(3px);
+    border-radius: 15px;
     font-size: 1.2rem;
 
     & .card {
@@ -20,7 +22,7 @@
         width: clamp(450px, 30vw, 450px);
         border-radius: 15px;
         background: url(/app/static/images/wave.jpg) center / cover no-repeat;
-        box-shadow: 0 5px 15px black;
+        box-shadow: 0 5px 15px rgb(0, 0, 0);
         transition: all 0.5s ease;
 
 
