@@ -13,7 +13,8 @@ body {
         "side-bar content";
     grid-template-columns: 15% auto;
     column-gap: 2%;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
     background: url(/app/static/images/wave.jpg) center / cover no-repeat;
     color: #F0EBE3;
     font-family: "Poppins";
@@ -36,6 +37,8 @@ body {
     box-shadow: 0 5px 15px rgba(148, 148, 148, 0.5);
     border-radius: 15px;
     padding: 20px 0;
+    height: 100%;
+    overflow: hidden;
 
     /* logo de coruja */
     & .logo {
@@ -113,7 +116,7 @@ body {
 
 /* stilo da area principal */
 .content {
-    grid-area: "content";
+    grid-area: content;
     display: grid;
     gap: 2%;
     background: linear-gradient(130deg, #2e2e2e30, #17171730);
@@ -123,4 +126,6 @@ body {
     padding: 20px;
     color: #F0EBE3;
     font-size: 1.5rem;
+    overflow-y: auto;
+    height: 100%;
 }
