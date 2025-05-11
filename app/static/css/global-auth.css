@@ -26,7 +26,7 @@ body {
 .container {
     background: linear-gradient(130deg, #acacac30, #09090930);
     backdrop-filter: blur(3px);
-    box-shadow: 0 5px 15px rgba(148, 148, 148, 0.74);
+    box-shadow: 0 5px 10px rgba(148, 148, 148, 0.74);
     align-items: center;
     justify-content: center;
     border-radius: 15px;
@@ -45,7 +45,7 @@ body {
         border: none;
         outline: none;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
-        background: rgba(255, 255, 255, 0.15);
+        background: rgb(59, 59, 59);
         border-radius: 12px;
         color: #000000;
         font-weight: 500;
@@ -58,7 +58,6 @@ body {
         top: 50%;
         left: 12px;
         transform: translateY(-50%);
-
         pointer-events: none;
         font-weight: 400;
         transition: 0.3s ease;
@@ -80,8 +79,8 @@ body {
     & input:focus,
     & input:hover,
     & input:not(:placeholder-shown) {
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(29, 29, 29, 0.8));
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
+        background: linear-gradient(90deg, rgb(216, 216, 216), rgba(29, 29, 29));
+        box-shadow: 0 5px 15px black;
         transform: scale(1.008);
     }
 
