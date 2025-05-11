@@ -20,6 +20,7 @@ body {
     background: url(/app/static/images/wave.jpg) center / cover no-repeat;
     color: #F0EBE3;
     font-family: "Poppins";
+    padding: 5vh;
 }
 
 .container {
