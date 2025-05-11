@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account</title>
     <link rel="stylesheet" href="/app/static/css/global-main.css">
+    <link rel="stylesheet" href="/app/static/css/global-auth.css">
     <link rel="stylesheet" href="/app/static/css/my-account.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link
@@ -72,43 +73,66 @@
 
     <!-- Classe responsável pela organização de toda a area principal -->
     <div class="content">
-        <div class="perfil">😔</div>
+        <div class="perfil">
+            <input type="file" id="image-selector" accept="image/*">
+            <button onclick="document.getElementById('image-selector').click()">
+                <i class="fas fa-camera"></i>
+            </button>
+        </div>
 
         <div class="informations">
 
             <div class="info">
-                <label for="name">Nome:</label>
                 <input id="name" placeholder="jorgin">
+                <label for="name">Nome:</label>
                 </input>
             </div>
 
             <div class="info">
-                <label for="email">Email:</label>
                 <input id="email" placeholder="jrgin@gmail">
+                <label for="email">Email:</label>
                 </input>
             </div>
 
             <div class="info">
-                <label for="password">Senha:</label>
                 <input id="password" placeholder="123">
+                <label for="password">Senha:</label>
                 </input>
             </div>
 
             <div class="info">
-                <label for="cpf">CPF:</label>
                 <input id="cpf" placeholder="123123">
+                <label for="cpf">CPF:</label>
                 </input>
             </div>
 
             <div class="info">
-                <label for="phone">Telefone:</label>
                 <input id="phone" placeholder="111111">
+                <label for="phone">Telefone:</label>
                 </input>
             </div>
 
             <div class="info">
-                <label for="birth-date">Data de Nascimento:</label>
                 <input id="birth-date" placeholder="12/12/1212">
+                <label for="birth-date">Data de Nascimento:</label>
+                </input>
+            </div>
+
+            <div class="info">
+                <input id="mother-name" placeholder="maria">
+                <label for="mother-name">Nome da Mãe:</label>
+                </input>
+            </div>
+
+            <div class="info">
+                <input id="nationality" placeholder="brasil">
+                <label for="nationality">Nacionalidade:</label>
+                </input>
+            </div>
+
+            <div class="info">
+                <input id="cep" placeholder="5434-34434">
+                <label for="cep">CEP:</label>
                 </input>
             </div>
         </div>
