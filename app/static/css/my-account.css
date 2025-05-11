@@ -1,40 +1,45 @@
 .content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: start;
-    row-gap: 20px;
+    justify-content: space-around;
+    gap: 20px;
     padding: 20px;
 }
 
-.perfil {
-    position: relative;
-    flex-shrink: 0;
-    align-content: center;
-    justify-items: center;
-    height: 300px;
-    width: 300px;
-    border-radius: 50%;
-    background: rgb(180, 180, 180) center / cover no-repeat;
+.user-profile {
 
-    & #image-selector {
-        display: none;
-    }
+    & .profile-image {
+        position: relative;
+        height: 300px;
+        width: 300px;
+        border-radius: 50%;
+        background: rgb(180, 180, 180) center / cover no-repeat;
 
-    & button {
-        position: absolute;
-        bottom: 30px;
-        right: 30px;
-        font-size: 2.2rem;
-        background: transparent;
-        border: none;
-        color: #F0EBE3;
+        & #image-selector {
+            display: none;
+        }
+
+        & button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 8px;
+            border-radius: 50%;
+            font-size: 2rem;
+            background: #F0EBE3;
+            border: none;
+            color: #090909;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+        }
     }
 }
 
 .informations {
     display: flex;
-    width: 100%;
+    flex: 1;
+    min-width: 45vw;
     flex-direction: column;
 
     & .info {
@@ -44,7 +49,7 @@
         & label {
             position: absolute;
             left: 0px;
-            top: -30px;
+            top: -28px;
             font-size: 1.2rem;
         }
 
@@ -60,7 +65,7 @@
             color: #000000;
             width: 100%;
             font-weight: 500;
-            transition: box-shadow, transform 0.2s ease-in;
+            transition: all 0.2s ease-in;
 
             &:hover {
                 background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(29, 29, 29, 0.8));
@@ -69,6 +74,4 @@
             }
         }
     }
-
-
 }
