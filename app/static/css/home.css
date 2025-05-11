@@ -7,12 +7,14 @@
         "history history";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.3fr 1fr 1fr 1fr;
+    background: #2626268a;
 
     /* area de boas vindas */
     & .welcome {
         grid-area: welcome;
-        background: #26262650;
+        background: linear-gradient(130deg, #acacac30, #09090930);
         backdrop-filter: blur(3px);
+        box-shadow: 0 5px 10px rgb(0, 0, 0);
         border-radius: 15px;
         height: 100%;
         width: 100%;
@@ -28,8 +30,9 @@
     & .balance {
         grid-area: balance;
         position: relative;
-        background: #26262650;
+        background: linear-gradient(130deg, #acacac30, #09090930);
         backdrop-filter: blur(3px);
+        box-shadow: 0 5px 10px rgb(0, 0, 0);
         border-radius: 15px;
         height: 100%;
         width: 100%;
@@ -53,8 +56,9 @@
     & .bill {
         grid-area: bill;
         position: relative;
-        background: #26262650;
+        background: linear-gradient(130deg, #acacac30, #09090930);
         backdrop-filter: blur(3px);
+        box-shadow: 0 5px 10px rgb(0, 0, 0);
         border-radius: 15px;
         height: 100%;
         width: 100%;
@@ -80,8 +84,9 @@
         flex-direction: column;
         row-gap: 5%;
         position: relative;
-        background: #26262650;
+        background: linear-gradient(130deg, #acacac30, #09090930);
         backdrop-filter: blur(3px);
+        box-shadow: 0 5px 10px rgb(0, 0, 0);
         border-radius: 15px;
         height: 100%;
         width: 100%;
@@ -95,11 +100,12 @@
             border-spacing: 0;
             border-radius: 15px;
             overflow: hidden;
+            box-shadow: 0 5px 10px rgb(0, 0, 0);
 
             & thead {
 
                 & th {
-                    background: #262626;
+                    background: #1f1f1f;
                     padding: 10px;
                     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                 }
@@ -126,7 +132,7 @@
             display: block;
             max-height: 120px;
             overflow-y: auto;
-            background: #26262650;
+            background: #2e2e2e;
 
             & th,
             & td {
@@ -156,15 +162,15 @@
         grid-area: options;
         display: flex;
         column-gap: 2%;
-        overflow: hidden;
 
         & .op {
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: #26262650;
+            background: linear-gradient(130deg, #acacac30, #09090930);
             backdrop-filter: blur(3px);
+            box-shadow: 0 5px 10px rgb(0, 0, 0);
             border-radius: 15px;
             height: 100%;
             width: 100%;
