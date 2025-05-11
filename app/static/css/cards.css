@@ -3,45 +3,91 @@
     grid-template-areas:
         "card"
         "info";
-    grid-template-columns: auto;
-    grid-template-rows: auto;
+    grid-template-columns: 100%;
+    grid-template-rows: 1.2fr 2fr;
 }
 
 .card-container {
     grid-area: card;
     align-content: center;
     justify-items: center;
-    background: yellow;
+    background: rgb(46, 46, 46);
+    font-size: 1.2rem;
 
     & .card {
         position: relative;
-        height: 80%;
-        width: 80%;
+        height: clamp(300px, 30vh, 300px);
+        width: clamp(450px, 30vw, 450px);
         border-radius: 15px;
-        background-color: aqua;
+        background: url(/app/static/images/wave.jpg) center / cover no-repeat;
+        box-shadow: 0 5px 15px black;
+        transition: all 0.5s ease;
 
-        #name {
+
+        & #logo {
             position: absolute;
-            top: 5%;
-            left: 5%;
+            top: 10%;
+            left: 3%;
+            width: 50px;
+            height: 50px;
+            background: url(/app/static/images/logo.png) center / contain no-repeat;
+
         }
 
-        #card-number {
+        & #bank-name {
             position: absolute;
-            top: 60%;
-            left: 5%;
+            top: 12%;
+            left: 13%;
         }
 
-        #date {
+        & #name {
             position: absolute;
             top: 80%;
             left: 5%;
         }
 
-        #cvc {
+        & #card-number {
             position: absolute;
-            top: 80%;
-            left: 30%;
+            top: 50%;
+            left: 5%;
         }
+
+        & #date {
+            position: absolute;
+            top: 65%;
+            left: 5%;
+        }
+
+        & #cvc {
+            position: absolute;
+            top: 65%;
+            left: 25%;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 25%;
+            right: 15%;
+            height: 50px;
+            width: 70px;
+            border-radius: 10px;
+            background: url(/app/static/images/card-chip.jpg) center / cover no-repeat;
+        }
+
     }
+
+    @media (max-width: 678px) {
+        & .card {
+            transform: scale(0.8);
+        }
+
+    }
+}
+
+.infos {
+    grid-area: info;
+    background-color: rgba(153, 205, 50, 0.322);
+    height: 100%;
+    width: 100%;
 }
