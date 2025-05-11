@@ -156,13 +156,20 @@
         grid-area: options;
         display: flex;
         column-gap: 2%;
+        overflow: hidden;
 
         & .op {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             background: #26262650;
             backdrop-filter: blur(3px);
             border-radius: 15px;
             height: 100%;
             width: 100%;
+            padding: 15px;
+            overflow: hidden;
         }
     }
 
