@@ -54,13 +54,11 @@
             position: absolute;
             left: 0px;
             top: -28px;
-            font-size: 1.2rem;
         }
 
         & input {
             padding: 12px;
             padding-right: 40px;
-            font-size: 1rem;
             border: none;
             outline: none;
             box-shadow: 0 5px 10px black;
