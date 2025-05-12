@@ -132,3 +132,10 @@ body {
     overflow-y: auto;
     height: 100%;
 }
+
+p,
+span,
+th,
+td {
+    cursor: default;
+}
