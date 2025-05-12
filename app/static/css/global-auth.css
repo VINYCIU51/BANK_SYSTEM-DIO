@@ -149,9 +149,15 @@ p {
     transition: all 0.25s ease-in;
 
     &:hover {
-        background: transparent;
-        border: 2px solid blue;
-        box-shadow: 0 3px 10px rgb(13, 13, 250);
+        box-shadow: 0 3px 10px rgb(45, 45, 255);
         transform: scale(1.1);
     }
+}
+
+/* desabilita a mudanca de estilo do mouse em textos */
+p,
+span,
+th,
+td {
+    cursor: default;
 }
