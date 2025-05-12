@@ -14,7 +14,12 @@
     background: #26262650;
     backdrop-filter: blur(3px);
     border-radius: 15px;
-    font-size: 1.2rem;
+
+    & span {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+    }
 
     & .card {
         position: relative;
