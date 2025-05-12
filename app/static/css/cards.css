@@ -1,3 +1,4 @@
+/* formatacao da area do conteudo */
 .content {
     display: grid;
     grid-template-areas:
@@ -7,6 +8,7 @@
     grid-template-rows: 1.7fr 2fr;
 }
 
+/* espaço para o cartao de credito fisico */
 .card-container {
     grid-area: card;
     align-content: center;
@@ -15,6 +17,7 @@
     backdrop-filter: blur(3px);
     border-radius: 15px;
 
+    /* titulo da area */
     & .card-title {
         display: flex;
         padding: 0 5% 0 5%;
@@ -22,6 +25,7 @@
         justify-content: space-between;
         width: 100%;
 
+        /* botao de bloqueio de cartao */
         & button {
             background: transparent;
             border: none;
@@ -35,6 +39,7 @@
         }
     }
 
+    /* cartao em si */
     & .card {
         position: relative;
         height: clamp(300px, 30vh, 300px);
@@ -44,7 +49,7 @@
         box-shadow: 0 5px 15px rgb(0, 0, 0);
         transition: all 0.5s ease;
 
-
+        /* logo do banco */
         & #logo {
             position: absolute;
             top: 10%;
@@ -55,6 +60,7 @@
 
         }
 
+        /* informacoes presente no cartao */
         & #bank-name {
             position: absolute;
             top: 12%;
@@ -85,6 +91,7 @@
             left: 25%;
         }
 
+        /* chip do cartao */
         &::before {
             content: "";
             position: absolute;
@@ -98,6 +105,7 @@
 
     }
 
+    /* diminui o tamanho do cartao em telas menores */
     @media (max-width: 678px) {
         & .card {
             transform: scale(0.8);
@@ -106,6 +114,7 @@
     }
 }
 
+/* area para informacoes sobre o cartao virtual */
 .virtual-card {
     grid-area: info;
     display: grid;
@@ -117,7 +126,7 @@
     backdrop-filter: blur(3px);
     border-radius: 15px;
 
-
+    /* titulo da area */
     & .card-title {
         grid-area: title;
         display: flex;
@@ -126,7 +135,7 @@
         justify-content: space-between;
         width: 100%;
 
-
+        /* botao de bloqueio de cartao */
         & button {
             background: transparent;
             border: none;
