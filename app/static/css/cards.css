@@ -4,7 +4,7 @@
         "card"
         "info";
     grid-template-columns: 100%;
-    grid-template-rows: 1.5fr 2fr;
+    grid-template-rows: 1.7fr 2fr;
 }
 
 .card-container {
@@ -15,10 +15,24 @@
     backdrop-filter: blur(3px);
     border-radius: 15px;
 
-    & span {
-        position: absolute;
-        top: 5%;
-        left: 5%;
+    & .card-title {
+        display: flex;
+        padding: 0 5% 0 5%;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        & button {
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        & i {
+            color: #F0EBE0;
+            font-size: 1rem;
+        }
     }
 
     & .card {
@@ -92,9 +106,64 @@
     }
 }
 
-.infos {
+.virtual-card {
     grid-area: info;
-    background-color: rgba(153, 205, 50, 0.322);
-    height: 100%;
-    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "title"
+        "infos";
+    grid-template-rows: 0.3fr 0.5fr;
+    background: #26262650;
+    backdrop-filter: blur(3px);
+    border-radius: 15px;
+
+
+    & .card-title {
+        grid-area: title;
+        display: flex;
+        padding: 0 5% 0 5%;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+
+        & button {
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        & i {
+            color: #F0EBE0;
+            font-size: 1rem;
+        }
+    }
+
+    & .virtual-info {
+        display: grid;
+        grid-template-areas:
+            "name name"
+            "number number"
+            "date cvc";
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        padding: 0 5% 0 5%;
+
+        & .name {
+            grid-area: name;
+        }
+
+        & .number {
+            grid-area: number;
+        }
+
+        & .date {
+            grid-area: date;
+        }
+
+        & .cvc {
+            grid-area: cvc;
+        }
+    }
 }
