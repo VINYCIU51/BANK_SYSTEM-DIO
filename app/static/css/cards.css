@@ -149,6 +149,7 @@
         }
     }
 
+    /* informacoes do cartao */
     & .virtual-info {
         display: grid;
         grid-template-areas:
