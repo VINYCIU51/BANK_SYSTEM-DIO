@@ -1,13 +1,13 @@
 import sqlite3
 
-conn = sqlite3.connect("usuarios.db")
+conn = sqlite3.connect("users.db")
 
 cursor = conn.cursor()
 
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS usuarios(
+CREATE TABLE IF NOT EXISTS users(
     id INTEGER PRIMARY KEY AUTOINCREMENT,  
-    name TEXT NOT NULL,  
+    full_name TEXT NOT NULL,  
     mother_name TEXT,  
     cpf TEXT NOT NULL UNIQUE,  
     nationality TEXT,  
@@ -17,21 +17,34 @@ CREATE TABLE IF NOT EXISTS usuarios(
     email TEXT NOT NULL UNIQUE,  
     password TEXT NOT NULL,  
     account_number TEXT UNIQUE,  
-    balance REAL NOT NULL DEFAULT 0.0,  
-    credit_limit REAL DEFAULT 500.0      
+    balance REAL NOT NULL DEFAULT 0.0,       
 )
 """)
 
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS transacoes(
+CREATE TABLE IF NOT EXISTS transactions(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    usuario_id INTEGER NOT NULL,
-    nome TEXT NOT NULL,
-    tipo TEXT NOT NULL CHECK(tipo IN ('recebimento', 'pagamento')),
-    valor REAL NOT NULL,
-    data TEXT NOT NULL,
-    descricao TEXT,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+    user_id INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    type TEXT NOT NULL,
+    amount REAL NOT NULL,
+    date TEXT NOT NULL,
+    description TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+)
+""")
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS credit_cards(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    card_number TEXT NOT NULL UNIQUE,
+    cardholder_name TEXT NOT NULL,
+    expiration_date TEXT NOT NULL,
+    cvv TEXT NOT NULL,
+    credit_limit REAL NOT NULL,
+    is_active BOOLEAN DEFAULT 1,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 )
 """)
 
