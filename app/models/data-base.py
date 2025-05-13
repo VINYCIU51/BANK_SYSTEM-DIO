@@ -21,3 +21,19 @@ CREATE TABLE IF NOT EXISTS usuarios(
     credit_limit REAL DEFAULT 500.0      
 )
 """)
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS transacoes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usuario_id INTEGER NOT NULL,
+    nome TEXT NOT NULL,
+    tipo TEXT NOT NULL CHECK(tipo IN ('recebimento', 'pagamento')),
+    valor REAL NOT NULL,
+    data TEXT NOT NULL,
+    descricao TEXT,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+)
+""")
+
+conn.commit()
+conn.close()
