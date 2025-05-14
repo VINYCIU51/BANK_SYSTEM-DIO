@@ -140,3 +140,13 @@ th,
 td {
     cursor: default;
 }
+
+.feature {
+    background: linear-gradient(130deg, #acacac30, #09090930);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 5px 10px rgb(0, 0, 0);
+    border-radius: 15px;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+}
