@@ -4,6 +4,7 @@
         "welcome welcome"
         "balance bill"
         "options options"
+        "analytics analytics"
         "history history";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.3fr 1fr 1fr 1fr;
