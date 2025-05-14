@@ -7,23 +7,16 @@
         "analytics analytics"
         "history history";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.3fr 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 1fr 1fr 1fr 1fr;
     background: #2626268a;
 
     /* area de boas vindas */
     & .welcome {
         grid-area: welcome;
-        background: linear-gradient(130deg, #acacac30, #09090930);
-        backdrop-filter: blur(3px);
-        box-shadow: 0 5px 10px rgb(0, 0, 0);
-        border-radius: 15px;
-        height: 100%;
-        width: 100%;
-        padding: 20px;
 
         /* texto de boas vindas */
         & span {
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
     }
 
@@ -31,13 +24,6 @@
     & .balance {
         grid-area: balance;
         position: relative;
-        background: linear-gradient(130deg, #acacac30, #09090930);
-        backdrop-filter: blur(3px);
-        box-shadow: 0 5px 10px rgb(0, 0, 0);
-        border-radius: 15px;
-        height: 100%;
-        width: 100%;
-        padding: 20px;
 
         & span {
             position: absolute;
@@ -57,13 +43,6 @@
     & .bill {
         grid-area: bill;
         position: relative;
-        background: linear-gradient(130deg, #acacac30, #09090930);
-        backdrop-filter: blur(3px);
-        box-shadow: 0 5px 10px rgb(0, 0, 0);
-        border-radius: 15px;
-        height: 100%;
-        width: 100%;
-        padding: 20px;
 
         & span {
             position: absolute;
@@ -78,6 +57,35 @@
         }
     }
 
+    /* opcoes de transferir, investir etc */
+    & .options {
+        grid-area: options;
+        display: flex;
+        column-gap: 2%;
+
+        & .op {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+    }
+
+    /* area das propagandas */
+    & .analytics {
+        grid-area: analytics;
+        display: flex;
+        flex-direction: column;
+
+        & .graph {
+            border: 2px solid gray;
+            border-radius: 15px;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
     /* area do historico de transacoes */
     & .history {
         grid-area: history;
@@ -85,13 +93,6 @@
         flex-direction: column;
         row-gap: 5%;
         position: relative;
-        background: linear-gradient(130deg, #acacac30, #09090930);
-        backdrop-filter: blur(3px);
-        box-shadow: 0 5px 10px rgb(0, 0, 0);
-        border-radius: 15px;
-        height: 100%;
-        width: 100%;
-        padding: 20px;
         overflow: hidden;
 
 
@@ -154,29 +155,6 @@
             & tr:last-child td {
                 border-bottom: none;
             }
-        }
-
-    }
-
-    /* opcoes de transferir, investir etc */
-    & .options {
-        grid-area: options;
-        display: flex;
-        column-gap: 2%;
-
-        & .op {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(130deg, #acacac30, #09090930);
-            backdrop-filter: blur(3px);
-            box-shadow: 0 5px 10px rgb(0, 0, 0);
-            border-radius: 15px;
-            height: 100%;
-            width: 100%;
-            padding: 15px;
-            overflow: hidden;
         }
     }
 
