@@ -8,6 +8,7 @@ def addElement(table, data):
 
     sql = f"INSERT INTO {table} ({columns}) VALUES ({placeholders})"
 
+    # retorno para informar sobre erros
     try:
         cursor.execute(sql, values)
         conn.commit()
@@ -27,6 +28,7 @@ def updateElement(table, data, condition=None):
     
     sql = f"UPDATE {table} SET {set_values} WHERE {condition}"
     
+    # retorno para informar sobre erros
     try:
         cursor.execute(sql, values)
         conn.commit()
@@ -43,6 +45,7 @@ def selectElement(table, condition = None):
     if (condition):
         sql = f"SELECT * FROM {table} WHERE {condition}"
 
+    # retorno para informar sobre erros
     try:
         cursor.execute(sql)
         result = cursor.fetchall()
@@ -60,6 +63,7 @@ def deleteElement(table, condition):
 
     sql = f"DELETE FROM {table} WHERE {condition}"
 
+    # retorno para informar sobre erros
     try:
         cursor.execute(sql)
         conn.commit()
