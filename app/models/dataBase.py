@@ -4,6 +4,7 @@ conn = sqlite3.connect("dataBase.db")
 
 cursor = conn.cursor()
 
+# cria uma tabela para guardar as informacoes de usuario
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS users(
     id INTEGER PRIMARY KEY AUTOINCREMENT,  
@@ -21,6 +22,7 @@ CREATE TABLE IF NOT EXISTS users(
 )
 """)
 
+# tabela para informacoes de historico de transacoes
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS transactions(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -34,6 +36,7 @@ CREATE TABLE IF NOT EXISTS transactions(
 )
 """)
 
+# tabela de cartoes de credito
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS credit_cards(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
