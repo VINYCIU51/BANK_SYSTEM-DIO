@@ -60,8 +60,6 @@ a {
     }
 }
 
-#bank-name,
-span,
 p,
 em {
     animation: fade 1s linear forwards;
