@@ -24,14 +24,27 @@ a {
     height: 5rem;
     align-items: center;
     justify-content: space-between;
-    padding-right: 20px;
+    padding: 0px 20px 0px 20px;
     background: rgba(44, 44, 44, 0.404);
 
-    & span {
-        width: 350px;
-        text-align: center;
-        font-size: 2.4rem;
-        font-weight: bold;
+    & .title {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        align-items: center;
+
+        & .logo {
+            height: 80%;
+            width: 4rem;
+            background: url(/app/static/images/logo.png) center / contain no-repeat;
+        }
+
+        & span {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: bold;
+            padding: 10px;
+        }
     }
 
     & .links {
