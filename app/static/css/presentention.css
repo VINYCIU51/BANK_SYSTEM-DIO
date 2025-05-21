@@ -11,6 +11,8 @@ body {
     font-family: "Poppins";
     color: #f0ebe3;
     cursor: default;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 a {
@@ -19,14 +21,13 @@ a {
 }
 
 .navbar {
-    position: sticky;
-    top: 0;
     display: flex;
     flex-direction: row;
     height: 5rem;
+    width: 100vw;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 20px 0px 20px;
+    padding: 0px 50px 0px 50px;
     background: rgb(22, 22, 22);
     z-index: 5;
 
@@ -61,7 +62,11 @@ a {
 }
 
 p,
-em {
+em,
+ul,
+h1,
+h2,
+h3 {
     animation: fade 1s linear forwards;
     animation-timeline: view();
 }
@@ -74,7 +79,6 @@ section {
     height: 100vh;
     width: 100vw;
     align-content: center;
-    justify-items: center;
 }
 
 @keyframes fade {
@@ -85,8 +89,8 @@ section {
         opacity: 0;
     }
 
-    35%,
-    65% {
+    30%,
+    70% {
         transform: scale(1);
         opacity: 1;
     }
