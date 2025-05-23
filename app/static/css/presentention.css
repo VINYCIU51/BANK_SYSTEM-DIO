@@ -90,8 +90,10 @@ p {
 section {
     align-content: center;
     height: 100vh;
+    width: 100%;
     box-sizing: border-box;
     padding-left: 50px;
+    background: url(/app/static/images/wall-background.jpg) center / cover no-repeat;
 }
 
 @keyframes fade {
@@ -119,22 +121,20 @@ section {
 
     #title {
         padding: 0;
-        width: 100%;
 
         & #bank-name {
             text-align: center;
             font-size: clamp(5rem, 10vw, 15rem);
             font-weight: bold;
-            width: 100%;
             margin-bottom: 0;
+            width: 100%;
         }
 
         & #slogan {
             text-align: center;
-            width: 100%;
             font-size: clamp(0.8rem, 2vw, 1.5rem);
             margin-bottom: 0;
+            width: 100%;
         }
     }
-
 }
