@@ -4,107 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    background: black;
-    font-family: "Poppins";
-    color: #f0ebe3;
-    cursor: default;
-}
-
-a {
-    color: #f0ebe3;
-    text-decoration: none;
-}
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    height: 5rem;
-    width: 100%;
-    background: rgba(26, 26, 26, 0.212);
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 50px 0px 50px;
-    position: fixed;
-    top: 0;
-    z-index: 2;
-
-    & .nav-title {
-        display: flex;
-        flex-direction: row;
-        height: 100%;
-        align-items: center;
-
-        & .logo {
-            height: 80%;
-            width: 4rem;
-            background: url(/app/static/images/logo.png) center / contain no-repeat;
-        }
-
-        & span {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 500;
-            padding: 10px;
-            animation: none;
-        }
-    }
-
-    & .links {
-        display: flex;
-        height: 100%;
-        width: clamp(150px, 20vw, 150px);
-        align-items: center;
-        justify-content: space-around;
-    }
-}
-
-p,
-em,
-ul,
-h2,
-h3 {
-    animation: fade 1s linear forwards;
-    animation-timeline: view();
-}
-
-em {
-    font-weight: 800;
-}
-
-h1 {
-    margin-bottom: 15px;
-    font-size: 2rem;
-    animation: enter-left 0.5s linear forwards;
-    animation-timeline: view();
-}
-
-h3 {
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-p {
-    width: 50vw;
-    margin-bottom: 15px;
-}
-
-li {
-    margin-bottom: 10px;
-    margin-left: 20px;
-}
-
-section {
-    align-content: center;
-    height: 100vh;
-    width: 100%;
-    box-sizing: border-box;
-    padding-left: 10vw;
-    background: url(/app/static/images/wall-background.jpg) center / cover no-repeat;
-}
-
 @keyframes fade {
 
     0%,
@@ -153,6 +52,99 @@ section {
 
 }
 
+
+a {
+    color: #f0ebe3;
+    text-decoration: none;
+}
+
+p,
+em,
+ul,
+h2,
+h3 {
+    animation: fade 1s linear forwards;
+    animation-timeline: view();
+}
+
+em {
+    font-weight: 800;
+}
+
+h1 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+    animation: enter-left 0.5s linear forwards;
+    animation-timeline: view();
+}
+
+h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+p {
+    width: 50vw;
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: black;
+    font-family: "Poppins";
+    color: #f0ebe3;
+    cursor: default;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    width: 100%;
+    background: rgba(26, 26, 26, 0.212);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 50px 0px 50px;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+
+    & .nav-title {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        align-items: center;
+
+        & .logo {
+            height: 80%;
+            width: 4rem;
+            background: url(/app/static/images/logo.png) center / contain no-repeat;
+        }
+
+        & span {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 10px;
+            animation: none;
+        }
+    }
+
+    & .links {
+        display: flex;
+        height: 100%;
+        width: clamp(150px, 20vw, 150px);
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
 .content {
     display: flex;
     flex-direction: column;
@@ -160,7 +152,22 @@ section {
     justify-content: center;
     min-height: 100vh;
 
+    section {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        background: url(/app/static/images/wall-background.jpg) center / cover no-repeat;
+    }
+
     #title {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
         padding: 0;
 
         & #bank-name {
@@ -177,5 +184,50 @@ section {
             margin-bottom: 0;
             width: 100%;
         }
+    }
+
+    .graphic {
+        display: flex;
+        align-items: flex-end;
+        gap: 20px;
+        height: 300px;
+        margin-left: 15%;
+
+        & .col {
+            width: 60px;
+            background: linear-gradient(180deg, #f0ebe3, #f0ebe362, rgba(0, 0, 0, 0.205));
+            border-top-left-radius: 15px;
+            transition: height 1.2s ease;
+            height: 0;
+
+            &.ativa {
+                height: var(--altura-final);
+            }
+        }
+
+        & .col1 {
+            position: relative;
+            --altura-final: 100px;
+        }
+
+        & .col2 {
+            position: relative;
+            transition-delay: 100ms;
+            --altura-final: 180px;
+        }
+
+        & .col3 {
+            position: relative;
+            transition-delay: 150ms;
+            --altura-final: 250px;
+        }
+
+        & i {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
     }
 }
