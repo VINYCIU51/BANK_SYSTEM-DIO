@@ -8,7 +8,6 @@
         "history history";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.3fr 1fr 1fr 1fr 1fr;
-    background: #2626268a;
 
     /* area de boas vindas */
     & .welcome {

@@ -32,9 +32,9 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(130deg, #acacac30, #09090930);
-    backdrop-filter: blur(3px);
-    box-shadow: 0 5px 15px rgba(148, 148, 148, 0.5);
+    background: rgba(196, 196, 196, 0.068);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 5px 15px rgb(0, 0, 0);
     border-radius: 15px;
     padding: 20px 0;
     height: 100%;
@@ -122,9 +122,9 @@ body {
     grid-area: content;
     display: grid;
     gap: 2%;
-    background: linear-gradient(130deg, #2e2e2e30, #17171730);
-    backdrop-filter: blur(3px);
-    box-shadow: 0 5px 15px rgba(148, 148, 148, 0.5);
+    background: rgba(196, 196, 196, 0.068);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 5px 15px rgb(0, 0, 0);
     border-radius: 15px;
     padding: 20px;
     color: #F0EBE3;
@@ -142,7 +142,7 @@ td {
 }
 
 .feature {
-    background: linear-gradient(130deg, #acacac30, #09090930);
+    background: transparent;
     backdrop-filter: blur(3px);
     box-shadow: 0 5px 10px rgb(0, 0, 0);
     border-radius: 15px;
