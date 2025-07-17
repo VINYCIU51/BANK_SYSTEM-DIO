@@ -1,5 +1,5 @@
 const colunas = document.querySelectorAll('.col');
-const grafico = document.querySelector('.graphic'); // ou document.getElementById('graphic') se adicionar o ID
+const grafico = document.querySelector('.graphic');
 
 function verificarScroll() {
     const rect = grafico.getBoundingClientRect();
