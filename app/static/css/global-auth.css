@@ -17,7 +17,7 @@
 /* estilo de todo o body da pagina */
 body {
     min-height: 100vh;
-    background: url(/app/static/images/wave.jpg) center / cover no-repeat;
+    background: url(/static/images/wave.jpg) center / cover no-repeat;
     color: #F0EBE3;
     font-family: "Poppins";
     padding: 5vh;

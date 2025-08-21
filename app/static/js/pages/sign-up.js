@@ -57,7 +57,6 @@ document.getElementById("signupForm").addEventListener("submit", (event) => {
         hasError = true;
     }
 
-
     // validacao de telefone
     if (!phone.validate()) {
         hasError = true;

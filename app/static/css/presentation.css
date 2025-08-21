@@ -124,7 +124,7 @@ body {
         & .logo {
             height: 80%;
             width: 4rem;
-            background: url(/app/static/images/logo.png) center / contain no-repeat;
+            background: url(/static/images/logo.png) center / contain no-repeat;
         }
 
         & span {
@@ -160,7 +160,7 @@ body {
         box-sizing: border-box;
         padding-left: 10vw;
         padding-right: 10vw;
-        background: url(/app/static/images/wall-background.jpg) center / cover no-repeat;
+        background: url(/static/images/wall-background.jpg) center / cover no-repeat;
     }
 
     #title {
