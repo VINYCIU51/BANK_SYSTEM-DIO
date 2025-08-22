@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS users(
     email TEXT NOT NULL UNIQUE,  
     password TEXT NOT NULL,  
     account_number TEXT UNIQUE,  
-    balance REAL NOT NULL DEFAULT 0.0,       
+    balance REAL NOT NULL DEFAULT 0.0    
 )
 """)
 

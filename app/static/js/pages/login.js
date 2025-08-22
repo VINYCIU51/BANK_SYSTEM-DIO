@@ -6,7 +6,7 @@ const email = new Email();
 const pass = new Password();
 
 // Validação do submit
-document.getElementById("loginForm").addEventListener("submit", (event) => {
+document.getElementById("loginForm").addEventListener("submit", async (event) => {
     event.preventDefault();
 
     let hasError = false;
@@ -22,6 +22,23 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
     }
 
     if (!hasError) {
-        window.location.href = "#";
+        const form_data = {
+            "email": email.input.value,
+            "password": pass.input.value
+        };
+
+        const response = await fetch("/login/validate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(form_data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+            window.location.href = result.redirect_url;
+        } else {
+            alert(result.error || "Erro ao logar!");
+        }
     }
 });

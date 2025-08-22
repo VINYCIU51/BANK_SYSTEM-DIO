@@ -1,4 +1,4 @@
-from dataBase import *
+from .dataBase import *
 
 # adiciona um elemento a tabela especificada
 def addElement(table, data):
@@ -39,17 +39,20 @@ def updateElement(table, data, condition=None):
         return False
     
 # retorna o elemento com base no id
-def selectElement(table, condition = None):
-    if (not condition):
+def selectElement(table, condition=None, params=None):
+    if not condition:
         sql = f"SELECT * FROM {table}"
-    if (condition):
+    else:
         sql = f"SELECT * FROM {table} WHERE {condition}"
 
     # retorno para informar sobre erros
     try:
-        cursor.execute(sql)
+        if params:
+            cursor.execute(sql, params)
+        else:
+            cursor.execute(sql)
+            
         result = cursor.fetchall()
-        conn.commit()
         conn.close()
         return result
     
