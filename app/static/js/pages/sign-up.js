@@ -32,7 +32,7 @@ pass.input.addEventListener("input", () => {
 
 
 // monitora o envio do formulario
-document.getElementById("signupForm").addEventListener("submit", (event) => {
+document.getElementById("signupForm").addEventListener("submit", async (event) => {
     event.preventDefault();
 
     let hasError = false;
@@ -78,6 +78,32 @@ document.getElementById("signupForm").addEventListener("submit", (event) => {
     }
 
     if (!hasError) {
-        window.location.href = "#";
+
+        const form_data = {
+            name: document.getElementById("name").value,
+            mother_name: document.getElementById("mother-name").value,
+            cpf: document.getElementById("cpf").value,
+            nationality: document.getElementById("nationality").value,
+            zip_code: document.getElementById("cep").value,
+            birth_date: document.getElementById("birth-date").value,
+            phone_number: document.getElementById("phone").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+        };
+
+        const response = await fetch("/sign-up/validate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(form_data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+            window.location.href = result.redirect_url;
+        } else {
+            alert(result.error || "Erro ao se registrar!");
+        }
+
     }
 });
