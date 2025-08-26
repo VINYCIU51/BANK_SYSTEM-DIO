@@ -15,7 +15,7 @@ body {
     column-gap: 2%;
     height: 100vh;
     overflow: hidden;
-    background: url(/app/static/images/wave.jpg) center / cover no-repeat;
+    background: url(/static/images/wave.jpg) center / cover no-repeat;
     color: #F0EBE3;
     font-family: "Poppins";
 
