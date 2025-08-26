@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for( 'static' ,filename='css/global-main.css')}}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/dashboard.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- div responsável pelas informacoes na side bar -->
+    <div class="side-bar">
+
+        <!-- logo de coruja -->
+        <div class="logo">
+            <img class="logo" src="/static/images/logo.png">
+        </div>
+
+        <!-- area dos botoes de acoes -->
+        <div class="options">
+
+            <!-- botao da pagina inicial -->
+            <div class="buttons">
+                <button class="home">
+                    <label id="signal" for="home"></label>
+                    <i id="home" class="fas fa-house"></i>
+                    <label for="home">Home</label>
+                </button>
+            </div>
+
+            <!-- botao de configuracoes de conta de usuario -->
+            <div class="buttons">
+                <button class="user-account" onclick="window.location.href='my-account.html'">
+                    <i id="user" class="fas fa-user"></i>
+                    <label for="user">Minha conta</label>
+                </button>
+            </div>
+
+            <!-- botao dos cartoes de credito -->
+            <div class="buttons">
+                <button class="cards" onclick="window.location.href='cards.html'">
+                    <i id="cards" class="fas fa-credit-card"></i>
+                    <label for="cards">Cartões</label>
+                </button>
+            </div>
+
+            <!-- botao de notificacoes -->
+            <div class="buttons">
+                <button class="messages">
+                    <i id="messages" class="fas fa-envelope"></i>
+                    <label for="mesages">Notificações</label>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- botao para deslogar da conta -->
+        <div class="buttons">
+            <button class="log-out">
+                <i id="log-out" class="fas fa-right-to-bracket"></i>
+                <label for="log-out"> Deslogar</label>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Classe responsável pela organização de toda a area principal -->
+    <div class="content">
+
+        <div class="welcome feature">
+            <span>Bem vindo de volta Godofredo</span>
+        </div>
+
+        <!-- campo referente ao saldo do usuario -->
+        <div class="balance feature">
+            <span>Saldo</span>
+            <div class="current-balance">0,00</div>
+        </div>
+
+        <!-- campo referente a afatura atual do usuario -->
+        <div class="bill feature">
+            <span>Fatura atual</span>
+            <div class="current-bill">100,00</div>
+        </div>
+
+        <!-- campo para as opcoes de transacoes etc -->
+        <div class="options">
+
+            <div class="op feature">
+                <span>Tansferir</span>
+            </div>
+
+            <div class="op feature">
+                <span>investir</span>
+            </div>
+
+            <div class="op feature">
+                <span>Emprestimos</span>
+            </div>
+
+            <div class="op feature">
+                <span>Recarga de celular</span>
+            </div>
+        </div>
+
+
+        <!-- campo para os graficos de rendimento -->
+        <div class="analytics feature">
+            <span>Análise de rendimentos</span>
+            <div class="graph"></div>
+        </div>
+
+        <!-- campo que mostra o historico de transacoes do usuario -->
+        <div class="history feature">
+            <span>Histórico de transações</span>
+
+            <!-- tabela com as informacoes -->
+            <table>
+                <thead>
+                    <tr> <!-- Linha do cabeçalho -->
+                        <th>nome</th>
+                        <th>tipo</th>
+                        <th>valor</th>
+                        <th>data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> <!-- Linha do corpo -->
+                        <td>luis</td>
+                        <td>recebimento</td>
+                        <td>500</td>
+                        <td>12/15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
