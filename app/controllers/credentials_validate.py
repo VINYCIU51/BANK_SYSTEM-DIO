@@ -9,8 +9,6 @@ def validate_to_login(user_data):
     return user
 
 def validate_to_register(user_data):
-    message = ""
-    sucess = False
     email = user_data.get("email")
 
     data = {
@@ -29,13 +27,9 @@ def validate_to_register(user_data):
 
     # verifica se o email ta disponivel
     email_used = selectElement("users", f"email = '{email}'")
-    
-    if email_used:
-        message = "Email em uso"
-        sucess = False
+
+    if (email_used):
+        return False
     else:
-        sucess = True
         addElement("users", data)
-
-
-    return message, sucess
+        return True

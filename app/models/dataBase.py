@@ -1,55 +1,63 @@
 import sqlite3
 
-conn = sqlite3.connect("dataBase.db")
+def get_db_connection():
+    """Cria e retorna uma nova conexão com o banco"""
+    conn = sqlite3.connect("dataBase.db")
+    conn.row_factory = sqlite3.Row
+    return conn
 
-cursor = conn.cursor()
+def init_db():
+    conn = get_db_connection()
+    cursor = conn.cursor()
 
-# cria uma tabela para guardar as informacoes de usuario
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS users(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,  
-    full_name TEXT NOT NULL,  
-    mother_name TEXT,  
-    cpf TEXT NOT NULL UNIQUE,  
-    nationality TEXT,  
-    zip_code TEXT NOT NULL,  
-    birth_date DATE NOT NULL,  
-    phone_number TEXT NOT NULL,  
-    email TEXT NOT NULL UNIQUE,  
-    password TEXT NOT NULL,  
-    account_number TEXT UNIQUE,  
-    balance REAL NOT NULL DEFAULT 0.0    
-)
-""")
+    # cria uma tabela para guardar as informacoes de usuario
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,  
+        full_name TEXT NOT NULL,  
+        mother_name TEXT,  
+        cpf TEXT NOT NULL UNIQUE,  
+        nationality TEXT,  
+        zip_code TEXT NOT NULL,  
+        birth_date DATE NOT NULL,  
+        phone_number TEXT NOT NULL,  
+        email TEXT NOT NULL UNIQUE,  
+        password TEXT NOT NULL,  
+        account_number TEXT UNIQUE,  
+        balance REAL NOT NULL DEFAULT 0.0    
+    )
+    """)
 
-# tabela para informacoes de historico de transacoes
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS transactions(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    name TEXT NOT NULL,
-    type TEXT NOT NULL,
-    amount REAL NOT NULL,
-    date TEXT NOT NULL,
-    description TEXT,
-    FOREIGN KEY (user_id) REFERENCES users(id)
-)
-""")
+    # tabela para informacoes de historico de transacoes
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS transactions(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        name TEXT NOT NULL,
+        type TEXT NOT NULL,
+        amount REAL NOT NULL,
+        date TEXT NOT NULL,
+        description TEXT,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+    """)
 
-# tabela de cartoes de credito
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS credit_cards(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    card_number TEXT NOT NULL UNIQUE,
-    cardholder_name TEXT NOT NULL,
-    expiration_date TEXT NOT NULL,
-    cvv TEXT NOT NULL,
-    credit_limit REAL NOT NULL,
-    is_active BOOLEAN DEFAULT 1,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-)
-""")
+    # tabela de cartoes de credito
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS credit_cards(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        card_number TEXT NOT NULL UNIQUE,
+        cardholder_name TEXT NOT NULL,
+        expiration_date TEXT NOT NULL,
+        cvv TEXT NOT NULL,
+        credit_limit REAL NOT NULL,
+        is_active BOOLEAN DEFAULT 1,
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    )
+    """)
 
-conn.commit()
-conn.close()
+    conn.commit()
+    conn.close()
+
+init_db()

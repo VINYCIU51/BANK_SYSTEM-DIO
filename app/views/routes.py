@@ -4,8 +4,8 @@ from app import app
 
 # rota para a pagina inicial
 @app.route("/")
-def home():
-    return render_template("presentation.html")
+def landing_page():
+    return render_template("landing-page.html")
 
 @app.route("/login")
 def login():
@@ -15,16 +15,20 @@ def login():
 def signup():
     return render_template("sign-up.html")
 
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
 @app.route("/login/validate", methods=["POST"])
 def validate_login():
     login_data = request.get_json()
     
-    user = validate_to_login(login_data)
+    valid_user = validate_to_login(login_data)
 
-    if (user):
+    if (valid_user):
         return jsonify({
             "success": True,
-            "redirect_url": url_for("home")
+            "redirect_url": url_for("dashboard")
         })
     else:
         return jsonify({
@@ -36,15 +40,15 @@ def validate_login():
 def validate_signup():
     signup_data = request.get_json()
 
-    message, sucess = validate_to_register(signup_data)
+    valid_user = validate_to_register(signup_data)
 
-    if (sucess):
+    if (valid_user):
         return jsonify({
             "success": True,
-            "redirect_url": url_for("home")
+            "redirect_url": url_for("dashboard")
         })
     else:
         return jsonify({
             "success": False,
-            "error": message,
+            "error": "Informações inválidas!"
         }), 401

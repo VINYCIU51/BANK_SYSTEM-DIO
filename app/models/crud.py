@@ -2,6 +2,9 @@ from .dataBase import *
 
 # adiciona um elemento a tabela especificada
 def addElement(table, data):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
     columns = ",".join(data.keys())
     placeholders = ",".join(["?"] * len(data))
     values = tuple(data.values())
@@ -12,14 +15,19 @@ def addElement(table, data):
     try:
         cursor.execute(sql, values)
         conn.commit()
-        conn.close()
         return True
     
     except sqlite3.Error:
         return False
     
+    finally:
+        conn.close()
+    
 # edita as informaçoes no bd
 def updateElement(table, data, condition=None):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
     if not condition:
         return False
     
@@ -32,14 +40,19 @@ def updateElement(table, data, condition=None):
     try:
         cursor.execute(sql, values)
         conn.commit()
-        conn.close()
         return True
     
     except sqlite3.Error:
         return False
     
+    finally:
+        conn.close()
+    
 # retorna o elemento com base no id
 def selectElement(table, condition=None, params=None):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
     if not condition:
         sql = f"SELECT * FROM {table}"
     else:
@@ -53,14 +66,19 @@ def selectElement(table, condition=None, params=None):
             cursor.execute(sql)
             
         result = cursor.fetchall()
-        conn.close()
         return result
     
     except sqlite3.Error:
         return False
     
+    finally:
+        conn.close()
+    
 # deleta um elemento com base no id
 def deleteElement(table, condition):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
     if not condition:
         return False
 
@@ -70,8 +88,10 @@ def deleteElement(table, condition):
     try:
         cursor.execute(sql)
         conn.commit()
-        conn.close()
         return True
     
     except sqlite3.Error:
         return False
+    
+    finally:
+        conn.close()
